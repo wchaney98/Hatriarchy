@@ -9,12 +9,13 @@
     <sprites name="Player">
       <sprite>sprites\spr_low_hitbox</sprite>
       <sprite>sprites\spr_mid_hitbox</sprite>
+      <sprite>sprites\spr_vats_hit</sprite>
+      <sprite>sprites\spr_high_attack_hit</sprite>
       <sprites name="Player HUD">
         <sprite>sprites\spr_ap_box</sprite>
         <sprite>sprites\spr_ap_bg</sprite>
         <sprite>sprites\spr_ap_fill</sprite>
       </sprites>
-      <sprite>sprites\spr_vats_hit</sprite>
       <sprites name="Male">
         <sprites name="White">
           <sprite>sprites\spr_player_idle_male_white</sprite>
@@ -83,7 +84,6 @@
       <sprite>sprites\spr_menu_button</sprite>
       <sprite>sprites\spr_arrow_button</sprite>
     </sprites>
-    <sprites name="Bosses"/>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -121,7 +121,9 @@
         <object>objects\obj_hud_vats</object>
       </objects>
       <object>objects\obj_vats_hit</object>
+      <object>objects\obj_high_attack_hit</object>
       <object>objects\obj_avatar</object>
+      <object>objects\obj_persistent_avatar</object>
     </objects>
     <objects name="Training Room">
       <object>objects\obj_training_dummy</object>
@@ -135,7 +137,10 @@
     </objects>
     <objects name="Avatar Creation">
       <object>objects\obj_avatar_manager</object>
+      <object>objects\obj_avatar_switch</object>
+      <object>objects\obj_avatar_switch_arrow</object>
     </objects>
+    <object>objects\obj_alive</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_main_menu</room>

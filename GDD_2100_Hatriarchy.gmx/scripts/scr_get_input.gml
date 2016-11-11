@@ -4,7 +4,9 @@ player_one_right_down = keyboard_check(vk_right);
 
 player_one_low_attack_prs = keyboard_check_pressed(ord('A'));
 player_one_mid_attack_prs = keyboard_check_pressed(ord('S'));
-player_one_high_attack_prs = keyboard_check_pressed(ord('D'));
+
+player_one_high_attack_prs = keyboard_check(ord('D'));
+player_one_high_attack_rls = keyboard_check_released(ord('D'));
 
 player_one_low_block_prs = keyboard_check(ord('Z'));
 player_one_mid_block_prs = keyboard_check(ord('X'));

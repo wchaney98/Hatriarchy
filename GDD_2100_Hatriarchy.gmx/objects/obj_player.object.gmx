@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_alive</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -27,18 +27,25 @@
             <kind>1</kind>
             <string>state = scr_state_player_moving;
 
+/*
 avatar_idle = undefined;
 avatar_think = undefined;
 avatar_think_angry = undefined;
 avatar_walk = undefined;
 avatar_low_attack = undefined
 avatar_mid_attack = undefined;
+avatar_high_attack = undefined;
 avatar_low_block = undefined;
 avatar_mid_block = undefined;
 avatar_high_block = undefined;
+*/
 scr_avatar_create(spr_player_idle_male_asian, spr_player_think_male_asian, spr_player_think_angry_male_asian, spr_player_walk_male_asian, spr_player_low_attack_male_asian, spr_player_mid_attack_male_asian, spr_player_high_attack_male_asian, spr_player_low_block_male_asian, spr_player_mid_block_male_asian, spr_player_high_block_male_asian);
 
 attacking = false;
+high_attack_spd = 8;
+high_attack_obj_created = false;
+high_attack_obj = undefined;
+
 vats = false;
 vats_possible_select[0] = 0;
 vats_selected = undefined;

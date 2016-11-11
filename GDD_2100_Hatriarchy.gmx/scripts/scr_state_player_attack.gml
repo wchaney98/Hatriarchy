@@ -1,10 +1,15 @@
 ///scr_state_player_attack()
 
+scr_get_input();
+
 // Change player sprite to correct attack animation (only once)
 if (!attacking)
 {
     switch (attack_loc)
     {
+        case LOC_HIGH:
+            sprite_index = avatar_high_attack;
+            break;
         case LOC_MID:
             sprite_index = avatar_mid_attack;
             image_speed = 0.1;
@@ -22,6 +27,22 @@ else
 {
     switch (attack_loc)
     {
+        case LOC_HIGH:
+            if (player_one_high_attack_prs && !high_attack_obj_created)
+            {
+                high_attack_obj = instance_create(x, y - (8 * PIXEL_CONST), obj_high_attack_hit);
+                high_attack_obj.xvel = sign(image_xscale) * high_attack_spd;
+                high_attack_obj.creator = id;
+                high_attack_obj_created = true;
+            }
+            if (player_one_high_attack_rls && high_attack_obj_created)
+            {
+                high_attack_obj.image_speed = 0.1;
+                high_attack_obj.triggered = true;
+                high_attack_obj_created = false;
+                alarm[0] = room_speed * 0.12;
+            }
+            break;
         case LOC_MID:
             if (image_index >= 4 && !hit_created)
             {

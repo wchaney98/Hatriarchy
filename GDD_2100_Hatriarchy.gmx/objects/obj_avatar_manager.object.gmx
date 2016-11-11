@@ -82,8 +82,8 @@ switch (current_race)
         break;
 }
 
-draw_text(50, 50, "G: " + curr_gender_text);
-draw_text(50, 100, "R: " + curr_race_text);
+draw_text(100, 50, "G: " + curr_gender_text);
+draw_text(100, 100, "R: " + curr_race_text);
 </string>
           </argument>
         </arguments>

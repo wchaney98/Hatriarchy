@@ -14,6 +14,12 @@ if (player_one_vats_prs)
 }
 
 // TODO: Rest of attacks
+if (player_one_high_attack_prs)
+{
+    state = scr_state_player_attack;
+    attack_loc = LOC_HIGH;
+    exit;
+}
 if (player_one_mid_attack_prs) 
 {
     state = scr_state_player_attack;
