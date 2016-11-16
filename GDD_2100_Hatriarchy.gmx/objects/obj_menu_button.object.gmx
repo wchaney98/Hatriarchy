@@ -81,6 +81,11 @@ prev_room = undefined;
         // Quit game
         game_end();
         break;
+    case 5:
+        // Goto versus mode menu
+        room_goto(rm_versus_menu);
+        break;
+        
     /*
         STORY MODE MENU
     */
@@ -109,6 +114,15 @@ prev_room = undefined;
     case 30:
         // Goto first level which queues tutorial
         room_goto(rm_story_level1);
+        break;
+        
+    /*
+        VERSUS MODE MAP
+    */
+    
+    case 40:
+        // Goto versus area
+        room_goto(rm_versus_level);
         break;
 }
 </string>

@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>state = scr_state_player_moving;
 
-scr_avatar_create(spr_player_idle_male_asian, spr_player_think_male_asian, spr_player_think_angry_male_asian, spr_player_walk_male_asian, spr_player_low_attack_male_asian, spr_player_mid_attack_male_asian, spr_player_high_attack_male_asian, spr_player_low_block_male_asian, spr_player_mid_block_male_asian, spr_player_high_block_male_asian, spr_player_hit_male_asian, spr_player_crouch_male_asian);
+scr_avatar_create(spr_player_idle_male_white, spr_player_think_male_white, spr_player_think_angry_male_white, spr_player_walk_male_white, spr_player_low_attack_male_white, spr_player_mid_attack_male_white, spr_player_high_attack_male_white, spr_player_low_block_male_white, spr_player_mid_block_male_white, spr_player_high_block_male_white, spr_player_high_attack_male_white, spr_player_crouch_male_white);
 
 attacking = false;
 high_attack_spd = 8;
@@ -35,7 +35,7 @@ high_attack_obj_created = false;
 high_attack_obj = undefined;
 
 vats = false;
-global.p2_vats = false;
+global.p1_vats = false;
 vats_possible_select[0] = 0;
 vats_selected = undefined;
 vats_selection_queried = false;
@@ -55,7 +55,16 @@ dir = 1;
 
 life = 100;
 life_last_step = life;
+been_hit = false;
+hud_life = instance_create(room_width / 2 + 10, 10, obj_hud_life);
+hud_life.creator = id;
+hud_life.side = "right";
 
+action_pts = 0;
+hud_ap = instance_create(room_width / 2 + 10, 52, obj_hud_ap)
+hud_ap.creator = id;
+hud_ap.side = "right";
+alarm[2] = room_speed / 6; // ap decay alarm
 
 combo = 0;
 hud_combo = instance_create(0, 0, obj_hud_combo);
@@ -64,6 +73,9 @@ hud_combo.creator = id;
 damage = 5;
 
 spd = 5;
+grav = 1;
+jump_height = 22;
+stomp_force = 5;
 
 h_speed = 0;
 v_speed = 0;
@@ -169,8 +181,8 @@ alarm[2] = room_speed / 6;
           <argument>
             <kind>1</kind>
             <string>/// Alarm for combo counter (reset combo count)
-
-combo = 0;
+if (vats) alarm[1] = room_speed * 2;
+else combo = 0;
 </string>
           </argument>
         </arguments>
@@ -196,6 +208,7 @@ combo = 0;
             <string>/// Alarm for attack cooldown (Set state back to moving)
 attacking = false;
 hit_created = false;
+if (high_attack_obj_created) high_attack_obj_created = !high_attack_obj_created;
 state = scr_state_player_moving;
 </string>
           </argument>
@@ -219,7 +232,9 @@ state = scr_state_player_moving;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//script_execute(state);
+            <string>script_execute(state);
+
+if (keyboard_check_pressed(vk_escape)) room_goto(rm_main_menu);
 </string>
           </argument>
         </arguments>

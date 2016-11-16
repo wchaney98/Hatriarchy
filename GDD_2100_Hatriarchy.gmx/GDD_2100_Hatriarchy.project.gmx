@@ -225,6 +225,10 @@
       <room>rooms\rm_story_map</room>
       <room>rooms\rm_story_level1</room>
     </rooms>
+    <rooms name="Versus Mode">
+      <room>rooms\rm_versus_menu</room>
+      <room>rooms\rm_versus_level</room>
+    </rooms>
   </rooms>
   <constants number="13">
     <constant name="PIXEL_CONST">8</constant>
