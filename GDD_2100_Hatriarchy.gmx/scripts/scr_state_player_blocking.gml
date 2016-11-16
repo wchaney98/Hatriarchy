@@ -1,6 +1,8 @@
 ///scr_state_player_blocking()
 
 scr_get_input();
+scr_gravity();
+h_speed = 0;
 
 blocking = true;
 switch (block_loc)
@@ -38,4 +40,11 @@ switch (block_loc)
             state = scr_state_player_moving;
         }
         break;
+}
+
+y += v_speed;
+
+while (place_meeting(x, y, obj_ground))
+{
+    y -= 1;
 }

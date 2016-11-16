@@ -72,18 +72,43 @@ prev_room = undefined;
     case 2:
         // Goto instructions page
         room_goto(rm_instructions);
+        break;  
+    case 3:
+        // Goto credits page
+        room_goto(rm_credits);
         break;
-        
+    case 4:
+        // Quit game
+        game_end();
+        break;
     /*
         STORY MODE MENU
     */
     
     case 10:
-        // Goto story
+        // Start story TODO: if avatar not created
         room_goto(rm_avatar_creation);
         break;
     case 11:
-        // Goto savior screen
+        // Goto savior screen TODO: if avatar created (bool)
+        break;
+        
+    /*
+        AVATAR CREATION
+    */
+    
+    case 20:
+        // Confirm avatar and goto story mode map
+        room_goto(rm_story_map);
+        break;
+        
+    /*
+        STORY MODE MAP
+    */
+    
+    case 30:
+        // Goto first level which queues tutorial
+        room_goto(rm_story_level1);
         break;
 }
 </string>

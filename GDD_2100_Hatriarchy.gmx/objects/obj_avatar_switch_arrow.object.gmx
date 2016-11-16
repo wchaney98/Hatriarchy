@@ -52,10 +52,10 @@ dir = "unset";
             <string>switch(dir)
 {
     case "left":
-        creator.next = "left";
+        creator.left_pressed = true;
         break;
     case "right":
-        creator.next = "right";
+        creator.right_pressed = true;
         break;
 }
 </string>

@@ -1,6 +1,13 @@
 ///scr_get_input()
+escape = keyboard_check_pressed(vk_escape);
+
 player_one_left_down = keyboard_check(vk_left);
 player_one_right_down = keyboard_check(vk_right);
+player_one_jump_prs = keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_up);
+player_one_jump_down = keyboard_check(vk_space) || keyboard_check(vk_up);
+player_one_jump_rls = keyboard_check_released(vk_space) || keyboard_check_released(vk_up);
+player_one_crouch_prs = keyboard_check(vk_down);
+player_one_crouch_rls = keyboard_check_released(vk_down);
 
 player_one_low_attack_prs = keyboard_check_pressed(ord('A'));
 player_one_mid_attack_prs = keyboard_check_pressed(ord('S'));

@@ -1,6 +1,8 @@
 ///scr_state_player_attack()
 
 scr_get_input();
+scr_gravity();
+h_speed = 0;
 
 // Change player sprite to correct attack animation (only once)
 if (!attacking)
@@ -39,8 +41,7 @@ else
             {
                 high_attack_obj.image_speed = 0.1;
                 high_attack_obj.triggered = true;
-                high_attack_obj_created = false;
-                alarm[0] = room_speed * 0.12;
+                alarm[0] = room_speed * 0.15;
             }
             break;
         case LOC_MID:
@@ -63,4 +64,12 @@ else
             }
             break;
     }
+}
+
+x += h_speed;
+y += v_speed;
+
+while (place_meeting(x, y, obj_ground))
+{
+    y -= 1;
 }

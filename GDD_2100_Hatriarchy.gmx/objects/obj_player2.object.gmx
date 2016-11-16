@@ -26,24 +26,37 @@
           <argument>
             <kind>1</kind>
             <string>state = scr_state_player_moving;
+
+scr_avatar_create(spr_player_idle_male_asian, spr_player_think_male_asian, spr_player_think_angry_male_asian, spr_player_walk_male_asian, spr_player_low_attack_male_asian, spr_player_mid_attack_male_asian, spr_player_high_attack_male_asian, spr_player_low_block_male_asian, spr_player_mid_block_male_asian, spr_player_high_block_male_asian, spr_player_hit_male_asian, spr_player_crouch_male_asian);
+
 attacking = false;
+high_attack_spd = 8;
+high_attack_obj_created = false;
+high_attack_obj = undefined;
 
 vats = false;
-vats_possible_select[3] = 0;
+global.p2_vats = false;
+vats_possible_select[0] = 0;
+vats_selected = undefined;
+vats_selection_queried = false;
+vats_selection_finalized = false;
+vats_selection_final = undefined;
+vats_selected_loc = undefined;
 hud_vats = instance_create(0, 0, obj_hud_vats);
 hud_vats.creator = id;
 
+
 hit_created = false;
 blocking = false;
+on_block_cd = false;
 block_loc = undefined;
 attack_loc = undefined;
 dir = 1;
 
 life = 100;
-action_pts = 0;
-hud_ap = instance_create(10, 10, obj_hud_ap)
-hud_ap.creator = id;
-alarm[2] = room_speed / 6; // ap decay alarm
+life_last_step = life;
+
+
 combo = 0;
 hud_combo = instance_create(0, 0, obj_hud_combo);
 hud_combo.creator = id;
@@ -54,6 +67,54 @@ spd = 5;
 
 h_speed = 0;
 v_speed = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Alarm when hit stun is over
+state = scr_state_player_moving;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Block cooldown
+on_block_cd = false;
 </string>
           </argument>
         </arguments>
@@ -78,8 +139,11 @@ v_speed = 0;
             <kind>1</kind>
             <string>/// Action points decay
 
-if (action_pts &gt; 0) action_pts -= 0.5;
-if (action_pts &lt;= 0) action_pts = 0;
+if (!vats)
+{
+    if (action_pts &gt; 0) action_pts -= 0.5;
+    if (action_pts &lt;= 0) action_pts = 0;
+}
 
 alarm[2] = room_speed / 6;
 </string>
@@ -155,7 +219,7 @@ state = scr_state_player_moving;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>script_execute(state);
+            <string>//script_execute(state);
 </string>
           </argument>
         </arguments>

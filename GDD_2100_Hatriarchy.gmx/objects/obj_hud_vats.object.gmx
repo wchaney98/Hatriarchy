@@ -80,14 +80,14 @@ draw_set_valign(fa_middle);
 draw_set_color(c_black);
 var curr_vats_status = creator.vats;
 
-draw_text(30, 60, text_prefix + string(curr_vats_status));
+//draw_text(30, 60, text_prefix + string(curr_vats_status));
 
 if (creator.vats)
 {
     if (!is_undefined(creator.vats_selected))
     {
         var s = creator.vats_selected;
-        if (last_selected != s) 
+        if (last_selected != s &amp;&amp; last_selected != undefined) 
         {
             last_selected.image_alpha = 1;
             last_selected = s;

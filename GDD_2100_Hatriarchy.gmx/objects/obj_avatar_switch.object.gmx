@@ -25,17 +25,97 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>next = undefined;
+            <string>avatar_manager = noone;
+modifying = undefined;
+text = "UNSET";
 
-switch (next)
+left_button = scr_switch_create_button(x - 90, y, "left");
+left_button.image_xscale *= -1;
+
+right_button = scr_switch_create_button(x + 90, y, "right");
+
+left_pressed = false;
+right_pressed = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (left_pressed)
 {
-    case "left":
-        
-        break;
-    case "right":
+    if (modifying == "gender")
+    {
+        avatar_manager.current_gender -= 1;
+        if (avatar_manager.current_gender &lt; MALE) avatar_manager.current_gender = FEMALE;
+    }
     
-        break;
+    else if (modifying == "race")
+    {
+        avatar_manager.current_race -= 1;
+        if (avatar_manager.current_race &lt; WHITE) avatar_manager.current_race = BLACK;
+    }
+    left_pressed = false;
 }
+
+if (right_pressed)
+{
+    if (modifying == "gender")
+    {
+        avatar_manager.current_gender += 1;
+        if (avatar_manager.current_gender &gt; FEMALE) avatar_manager.current_gender = MALE;
+    }
+    
+    else if (modifying == "race")
+    {
+        avatar_manager.current_race += 1;
+        if (avatar_manager.current_race &gt; BLACK) avatar_manager.current_race = WHITE;
+    }
+    right_pressed = false;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_set_font(test_font);
+draw_set_halign(fa_middle);
+draw_set_valign(fa_middle);
+
+draw_text(x, y, text);
 </string>
           </argument>
         </arguments>

@@ -3,7 +3,7 @@
   <spriteName>spr_high_attack_hit</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-10000</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -65,18 +65,66 @@ image_index = 0;
     if (!check_hit)
     {
         var coll = collision_point(x, y, obj_alive, false, false);
-        if (coll != noone)
+        if (coll == creator)
         {
-            coll.life -= creator.damage;
+            creator.life -= creator.damage;
+        }
+        if (coll != noone &amp;&amp; coll != creator)
+        {
+            if (coll.blocking)
+            {
+                var s = coll;
+                var bottom_left_x;
+                var bottom_left_y;
+                var top_right_x;
+                var top_right_y;
+                switch (s.block_loc)
+                {
+                    case LOC_HIGH:
+                        bottom_left_x = s.bbox_left;
+                        bottom_left_y = s.bbox_bottom + (3 * ((s.bbox_top - s.bbox_bottom) / 3));
+                        top_right_x = bottom_left_x + s.bbox_right - s.bbox_left;
+                        top_right_y = bottom_left_y - ((s.bbox_top - s.bbox_bottom) / 3);
+                        break;
+                    case LOC_LOW:
+                        bottom_left_x = s.bbox_left;
+                        bottom_left_y = s.bbox_bottom + ((s.bbox_top - s.bbox_bottom) / 3);
+                        top_right_x = bottom_left_x + s.bbox_right - s.bbox_left;
+                        top_right_y = bottom_left_y - ((s.bbox_top - s.bbox_bottom) / 3);
+                        break;
+                    case LOC_MID:
+                        bottom_left_x = s.bbox_left;
+                        bottom_left_y = s.bbox_bottom + (2 * ((s.bbox_top - s.bbox_bottom) / 3));
+                        top_right_x = bottom_left_x + s.bbox_right - s.bbox_left;
+                        top_right_y = bottom_left_y - ((s.bbox_top - s.bbox_bottom) / 3);
+                        break;
+                }
+                if collision_rectangle(bottom_left_x, bottom_left_y, top_right_x, top_right_y, s.object_index, false, true) == id
+                {
+                    if (coll.object_index = obj_player2) coll.x += sign(coll.x - creator.x) * 8;
+                } 
+            } 
+            else
+            {
+                show_debug_message("here");
+                coll.life -= creator.damage;
+                if (coll.object_index = obj_player2) coll.x += sign(coll.x - creator.x) * 8;
+            }
+        
+                
             if (coll != creator)
             {
-                scr_combo_add_and_check(creator);
-                scr_ap_add(creator, 5);
+                if !(coll.blocking &amp;&amp; coll.block_loc == LOC_HIGH)
+                {
+                    scr_combo_add_and_check(creator);
+                    scr_ap_add(creator, HIGH_AP);
+                } else scr_reset_combo(creator);
             }
         }
         check_hit = true;
-    }
-} else
+        }
+}
+else
 {
     x += xvel;
     y += yvel;

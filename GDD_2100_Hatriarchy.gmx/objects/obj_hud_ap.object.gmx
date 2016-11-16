@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>creator = noone;
+new_xscale = 0;
+side = "unset";
 </string>
           </argument>
         </arguments>
@@ -48,7 +50,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(spr_ap_fill, 0, x, y, creator.action_pts / 100, image_yscale, 0, c_white, 1);
+            <string>new_xscale = scr_tween(new_xscale, creator.action_pts / 100, 0.2);
+if (side == "left")
+    draw_sprite_ext(spr_ap_fill, 0, x, y, new_xscale, image_yscale, 0, c_white, 1);
+else
+    draw_sprite_ext(spr_ap_fill, 0, x + sprite_width, y, -new_xscale, image_yscale, 0, c_white, 1);
 draw_self();
 </string>
           </argument>

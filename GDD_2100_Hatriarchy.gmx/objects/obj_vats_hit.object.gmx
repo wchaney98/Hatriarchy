@@ -3,7 +3,7 @@
   <spriteName>spr_vats_hit</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-10000</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>target = noone;
 creator = noone;
+loc = undefined;
 image_speed = 0.1;
 </string>
           </argument>
@@ -50,9 +51,18 @@ image_speed = 0.1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (image_index &gt;= 3) 
+            <string>if (image_index &gt;= 2) 
 {
-    target.life -= creator.damage;
+    if not (target.blocking &amp;&amp; target.block_loc == loc) 
+    {
+        target.life -= creator.damage;
+        scr_combo_add_and_check(creator);
+    }
+    else 
+    {
+        target.life -= creator.damage / 2;
+        scr_reset_combo(creator);
+    }
     instance_destroy();
 }
 </string>

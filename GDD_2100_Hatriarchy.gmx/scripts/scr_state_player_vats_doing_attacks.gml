@@ -38,6 +38,7 @@ if (action_pts >= 20)
     o.image_yscale *= PIXEL_CONST;
     o.target = s;
     o.creator = id;
+    o.loc = vats_selected_loc;
     action_pts -= 20;
     scr_sleep(250);
 } else 

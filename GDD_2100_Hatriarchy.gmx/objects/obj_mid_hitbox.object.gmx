@@ -2,7 +2,7 @@
 <object>
   <spriteName>spr_mid_hitbox</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -56,7 +56,7 @@ instance_destroy();
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_training_dummy">
+    <event eventtype="4" ename="obj_alive">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -73,14 +73,7 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>other.life -= creator.damage;
-show_debug_message("dmg: " + string(-other.life));
-if (creator != noone)
-{
-    scr_combo_add_and_check(creator);
-    scr_ap_add(creator, MID_AP);
-}
-instance_destroy();
+            <string>scr_check_hitbox_and_damage(creator.damage, MID_AP, LOC_MID);
 </string>
           </argument>
         </arguments>

@@ -13,8 +13,11 @@
       <sprite>sprites\spr_high_attack_hit</sprite>
       <sprites name="Player HUD">
         <sprite>sprites\spr_ap_box</sprite>
-        <sprite>sprites\spr_ap_bg</sprite>
         <sprite>sprites\spr_ap_fill</sprite>
+        <sprite>sprites\spr_life_box</sprite>
+        <sprite>sprites\spr_life_fill</sprite>
+        <sprite>sprites\spr_boss_life_box</sprite>
+        <sprite>sprites\spr_boss_life_fill</sprite>
       </sprites>
       <sprites name="Male">
         <sprites name="White">
@@ -28,6 +31,8 @@
           <sprite>sprites\spr_player_low_block_male_white</sprite>
           <sprite>sprites\spr_player_mid_block_male_white</sprite>
           <sprite>sprites\spr_player_high_block_male_white</sprite>
+          <sprite>sprites\spr_player_hit_male_white</sprite>
+          <sprite>sprites\spr_player_crouch_male_white</sprite>
         </sprites>
         <sprites name="Black">
           <sprite>sprites\spr_player_idle_male_black</sprite>
@@ -40,6 +45,8 @@
           <sprite>sprites\spr_player_low_block_male_black</sprite>
           <sprite>sprites\spr_player_mid_block_male_black</sprite>
           <sprite>sprites\spr_player_high_block_male_black</sprite>
+          <sprite>sprites\spr_player_hit_male_black</sprite>
+          <sprite>sprites\spr_player_crouch_male_black</sprite>
         </sprites>
         <sprites name="Asian">
           <sprite>sprites\spr_player_idle_male_asian</sprite>
@@ -52,6 +59,8 @@
           <sprite>sprites\spr_player_low_block_male_asian</sprite>
           <sprite>sprites\spr_player_mid_block_male_asian</sprite>
           <sprite>sprites\spr_player_high_block_male_asian</sprite>
+          <sprite>sprites\spr_player_hit_male_asian</sprite>
+          <sprite>sprites\spr_player_crouch_male_asian</sprite>
         </sprites>
       </sprites>
       <sprites name="Female">
@@ -75,6 +84,7 @@
         <sprite>sprites\spr_player_mid_block</sprite>
         <sprite>sprites\spr_player_high_block</sprite>
         <sprite>sprites\spr_player_hit</sprite>
+        <sprite>sprites\spr_player_crouch</sprite>
       </sprites>
     </sprites>
     <sprites name="Training Room">
@@ -83,7 +93,23 @@
     <sprites name="Menus">
       <sprite>sprites\spr_menu_button</sprite>
       <sprite>sprites\spr_arrow_button</sprite>
+      <sprite>sprites\spr_logo</sprite>
+      <sprite>sprites\spr_instructions</sprite>
+      <sprite>sprites\spr_credits</sprite>
     </sprites>
+    <sprites name="Bosses">
+      <sprites name="Boss1">
+        <sprite>sprites\spr_boss1_idle</sprite>
+        <sprite>sprites\spr_boss1_throwing</sprite>
+        <sprite>sprites\spr_boss1_teleport</sprite>
+        <sprite>sprites\spr_boss1_rain_mtn_dew</sprite>
+        <sprites name="Attacks">
+          <sprite>sprites\spr_boss1_small_proj</sprite>
+          <sprite>sprites\spr_boss1_falling_proj</sprite>
+        </sprites>
+      </sprites>
+    </sprites>
+    <sprite>sprites\spr_ground</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -91,23 +117,47 @@
     <scripts name="Helper Scripts">
       <script>scripts\scr_get_input.gml</script>
       <script>scripts\scr_sleep.gml</script>
+      <script>scripts\scr_tween.gml</script>
     </scripts>
     <scripts name="Player Scripts">
-      <script>scripts\scr_reset_vats.gml</script>
       <script>scripts\scr_state_player_moving.gml</script>
+      <script>scripts\scr_state_player_crouch.gml</script>
       <script>scripts\scr_state_player_attack.gml</script>
       <script>scripts\scr_state_player_vats.gml</script>
+      <script>scripts\scr_state_player_hit.gml</script>
+      <script>scripts\scr_state_player_vats_doing_attacks.gml</script>
+      <script>scripts\scr_state_player_blocking.gml</script>
       <script>scripts\scr_combo_add_and_check.gml</script>
+      <script>scripts\scr_reset_combo.gml</script>
+      <script>scripts\scr_check_hitbox_and_damage.gml</script>
       <script>scripts\scr_ap_add.gml</script>
       <script>scripts\scr_vats_get_targets.gml</script>
       <script>scripts\scr_vats_reset_targets.gml</script>
-      <script>scripts\scr_state_player_vats_doing_attacks.gml</script>
+      <script>scripts\scr_reset_vats.gml</script>
       <script>scripts\scr_avatar_create.gml</script>
-      <script>scripts\scr_state_player_blocking.gml</script>
+      <script>scripts\scr_gravity.gml</script>
+      <script>scripts\scr_hit_reset_vars.gml</script>
+      <script>scripts\scr_set_vats_for_right_player.gml</script>
+    </scripts>
+    <scripts name="Avatar Creation">
+      <script>scripts\scr_create_switch.gml</script>
+      <script>scripts\scr_switch_create_button.gml</script>
+    </scripts>
+    <scripts name="Bosses">
+      <scripts name="Boss1">
+        <script>scripts\scr_boss1_create_small_proj.gml</script>
+        <script>scripts\scr_boss1_state_idle.gml</script>
+        <script>scripts\scr_boss1_state_teleport.gml</script>
+        <script>scripts\scr_boss1_state_throwing.gml</script>
+        <script>scripts\scr_boss1_state_rain_mtn_dew.gml</script>
+        <script>scripts\scr_boss1_create_falling_proj.gml</script>
+      </scripts>
+      <script>scripts\scr_boss_create_projectile.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\test_font</font>
+    <font>fonts\font_announcement</font>
   </fonts>
   <objects name="objects">
     <objects name="Player">
@@ -115,15 +165,19 @@
       <object>objects\obj_player2</object>
       <object>objects\obj_low_hitbox</object>
       <object>objects\obj_mid_hitbox</object>
+      <object>objects\obj_high_attack_hit</object>
+      <object>objects\obj_vats_hit</object>
       <objects name="Player HUD">
+        <object>objects\obj_hud_boss_life</object>
+        <object>objects\obj_hud_life</object>
         <object>objects\obj_hud_ap</object>
         <object>objects\obj_hud_combo</object>
         <object>objects\obj_hud_vats</object>
       </objects>
-      <object>objects\obj_vats_hit</object>
-      <object>objects\obj_high_attack_hit</object>
-      <object>objects\obj_avatar</object>
       <object>objects\obj_persistent_avatar</object>
+    </objects>
+    <objects name="Manager">
+      <object>objects\obj_game_manager_story_mode_boss1</object>
     </objects>
     <objects name="Training Room">
       <object>objects\obj_training_dummy</object>
@@ -131,9 +185,20 @@
     <objects name="Menus">
       <object>objects\obj_menu_button</object>
       <object>objects\obj_arrow_button</object>
+      <objects name="Story Mode">
+        <object>objects\obj_goto_stage_button</object>
+      </objects>
+      <object>objects\obj_logo</object>
+      <object>objects\obj_instructions</object>
+      <object>objects\obj_credits</object>
     </objects>
-    <objects name="Enemies">
-      <object>objects\obj_enemy</object>
+    <objects name="Bosses">
+      <objects name="Boss1">
+        <object>objects\obj_boss1</object>
+        <object>objects\obj_boss1_small_proj</object>
+        <object>objects\obj_boss1_falling_proj</object>
+      </objects>
+      <object>objects\obj_boss_proj</object>
     </objects>
     <objects name="Avatar Creation">
       <object>objects\obj_avatar_manager</object>
@@ -141,15 +206,27 @@
       <object>objects\obj_avatar_switch_arrow</object>
     </objects>
     <object>objects\obj_alive</object>
+    <object>objects\obj_ground</object>
+    <objects name="Effects">
+      <object>objects\eff_fadeout</object>
+    </objects>
   </objects>
+  <timelines name="timelines">
+    <timeline>timelines\tl_boss1_pattern</timeline>
+  </timelines>
   <rooms name="rooms">
     <room>rooms\rm_main_menu</room>
     <room>rooms\rm_training</room>
     <room>rooms\rm_avatar_creation</room>
     <room>rooms\rm_story_mode_menu</room>
     <room>rooms\rm_instructions</room>
+    <room>rooms\rm_credits</room>
+    <rooms name="Story Mode">
+      <room>rooms\rm_story_map</room>
+      <room>rooms\rm_story_level1</room>
+    </rooms>
   </rooms>
-  <constants number="12">
+  <constants number="13">
     <constant name="PIXEL_CONST">8</constant>
     <constant name="LOC_LOW">0</constant>
     <constant name="LOC_MID">1</constant>
@@ -162,6 +239,7 @@
     <constant name="BLACK">7</constant>
     <constant name="LOW_AP">10</constant>
     <constant name="MID_AP">20</constant>
+    <constant name="HIGH_AP">5</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>
