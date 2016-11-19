@@ -101,14 +101,23 @@ image_index = 0;
                 }
                 if collision_rectangle(bottom_left_x, bottom_left_y, top_right_x, top_right_y, s.object_index, false, true) == id
                 {
-                    if (coll.object_index = obj_player2) coll.x += sign(coll.x - creator.x) * 8;
+                    if (coll.object_index = obj_player2_vs) coll.x += sign(coll.x - creator.x) * 8;
                 } 
             } 
             else
             {
-                show_debug_message("here");
                 coll.life -= creator.damage;
-                if (coll.object_index = obj_player2) coll.x += sign(coll.x - creator.x) * 8;
+                switch(creator)
+                {
+                    case obj_player1_vs:
+                        if (coll.object_index == obj_player2_vs)
+                            coll.x += sign(coll.x - creator.x) * 8;
+                        break;
+                    case obj_player2_vs:
+                        if (coll.object_index == obj_player1_vs)
+                            coll.x += sign(coll.x - creator.x) * 8;
+                        break;
+                }
             }
         
                 

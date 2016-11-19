@@ -1,5 +1,4 @@
-///scr_vats_get_targets(exception)
-var exception = argument0;
+///scr_vats_get_targets()
 
 var j = 0;
 for (i = 0; i < instance_count; i++)

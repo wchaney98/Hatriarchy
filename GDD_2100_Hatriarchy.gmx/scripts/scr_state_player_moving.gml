@@ -18,7 +18,7 @@ if (player_one_vats_prs)
 {
     vats = true;
     scr_set_vats_for_right_player(true);
-    scr_vats_get_targets(obj_player2); // obj_player2 is exception to targets that aren't enemies
+    scr_vats_get_targets(); 
     state = scr_state_player_vats;
     exit;
 }

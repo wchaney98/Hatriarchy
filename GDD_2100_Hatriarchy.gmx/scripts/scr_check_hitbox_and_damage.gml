@@ -32,15 +32,24 @@ if (other.id != creator.id)
         }
         if collision_rectangle(bottom_left_x, bottom_left_y, top_right_x, top_right_y, s.object_index, false, true) == id
         {
-            if (other.object_index = obj_player2)
+            if (other.object_index = obj_player2_vs)
                 other.x += sign(other.x - creator.x) * 8;
         } 
     } 
     else
     {
         other.life -= argument0;
-        if (other.object_index = obj_player2)
-            other.x += sign(other.x - creator.x) * 8;
+        switch(object_index)
+        {
+            case obj_player1_vs:
+                if (other.object_index == obj_player2_vs)
+                    other.x += sign(other.x - creator.x) * 8;
+                break;
+            case obj_player2_vs:
+                if (other.object_index == obj_player1_vs)
+                    other.x += sign(other.x - creator.x) * 8;
+                break;
+        }
     }
     show_debug_message(object_get_name(other.object_index) +  " life: " + string(other.life));
     if (creator != noone)

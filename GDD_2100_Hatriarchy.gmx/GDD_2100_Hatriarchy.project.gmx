@@ -3,7 +3,9 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <NewExtensions/>
+  <NewExtensions>
+    <extension index="0">extensions\Free Shaders</extension>
+  </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprites name="Player">
@@ -110,8 +112,16 @@
       </sprites>
     </sprites>
     <sprite>sprites\spr_ground</sprite>
+    <sprite>sprites\spr_walk</sprite>
+    <sprite>sprites\spr_walk_new</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bac_level</background>
+    <backgrounds name="Group_refraction">
+      <background>background\bac_refraction_normal</background>
+      <background>background\bac_refraction_diffuse</background>
+    </backgrounds>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Helper Scripts">
@@ -155,14 +165,40 @@
       <script>scripts\scr_boss_create_projectile.gml</script>
     </scripts>
   </scripts>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\shd_shockwave.shader</shader>
+    <shader type="GLSLES">shaders\shd_bright_contrast.shader</shader>
+    <shader type="GLSLES">shaders\shd_emboss.shader</shader>
+    <shaders name="Gaussian shaders">
+      <shader type="GLSLES">shaders\shd_gaussian_horizontal.shader</shader>
+      <shader type="GLSLES">shaders\shd_gaussian_vertical.shader</shader>
+    </shaders>
+    <shader type="GLSLES">shaders\shd_greyscale.shader</shader>
+    <shader type="GLSLES">shaders\shd_invert.shader</shader>
+    <shader type="GLSLES">shaders\shd_LED.shader</shader>
+    <shader type="GLSLES">shaders\shd_magnify.shader</shader>
+    <shader type="GLSLES">shaders\shd_mosaic.shader</shader>
+    <shader type="GLSLES">shaders\shd_posterization.shader</shader>
+    <shader type="GLSLES">shaders\shd_ripple.shader</shader>
+    <shader type="GLSLES">shaders\shd_scanlines.shader</shader>
+    <shader type="GLSLES">shaders\shd_sepia.shader</shader>
+    <shader type="GLSLES">shaders\shd_shockwave_new.shader</shader>
+    <shader type="GLSLES">shaders\shd_sketch.shader</shader>
+    <shader type="GLSLES">shaders\shd_thermal.shader</shader>
+    <shader type="GLSLES">shaders\shd_wave.shader</shader>
+    <shader type="GLSLES">shaders\shd_radial_blur.shader</shader>
+    <shader type="GLSLES">shaders\shd_refraction.shader</shader>
+  </shaders>
   <fonts name="fonts">
     <font>fonts\test_font</font>
     <font>fonts\font_announcement</font>
+    <font>fonts\font0</font>
   </fonts>
   <objects name="objects">
     <objects name="Player">
       <object>objects\obj_player</object>
-      <object>objects\obj_player2</object>
+      <object>objects\obj_player1_vs</object>
+      <object>objects\obj_player2_vs</object>
       <object>objects\obj_low_hitbox</object>
       <object>objects\obj_mid_hitbox</object>
       <object>objects\obj_high_attack_hit</object>
@@ -210,6 +246,82 @@
     <objects name="Effects">
       <object>objects\eff_fadeout</object>
     </objects>
+    <objects name="Group_shockwave">
+      <object>objects\obj_controller_shockwave</object>
+      <object>objects\obj_player_shockwave</object>
+    </objects>
+    <objects name="Group_common_required_objects">
+      <object>objects\obj_global_controller</object>
+      <object>objects\obj_background</object>
+    </objects>
+    <objects name="Group_brightness_contrast">
+      <object>objects\obj_controller_brightness_contrast</object>
+      <object>objects\obj_player_brightness_contrast</object>
+    </objects>
+    <objects name="Group_emboss">
+      <object>objects\obj_controller_emboss</object>
+      <object>objects\obj_player_emboss</object>
+    </objects>
+    <objects name="Group_gaussian_blur">
+      <object>objects\obj_controller_gaussian_blur</object>
+      <object>objects\obj_player_gaussian_blur</object>
+    </objects>
+    <objects name="Group_greyscale">
+      <object>objects\obj_controller_greyscale</object>
+      <object>objects\obj_player_greyscale</object>
+    </objects>
+    <objects name="Group_invert">
+      <object>objects\obj_controller_invert</object>
+      <object>objects\obj_player_invert</object>
+    </objects>
+    <objects name="Group_LED_effect">
+      <object>objects\obj_controller_LED_effect</object>
+      <object>objects\obj_player_LED_effect</object>
+    </objects>
+    <objects name="Group_magnify">
+      <object>objects\obj_controller_magnify</object>
+      <object>objects\obj_player_magnify</object>
+    </objects>
+    <objects name="Group_mozaic">
+      <object>objects\obj_controller_mosaic</object>
+      <object>objects\obj_player_mosaic</object>
+    </objects>
+    <objects name="Group_posterization">
+      <object>objects\obj_controller_posterization</object>
+      <object>objects\obj_player_posterization</object>
+    </objects>
+    <objects name="Group_ripple">
+      <object>objects\obj_controller_ripple</object>
+      <object>objects\obj_player_ripple</object>
+    </objects>
+    <objects name="Group_scanlines_effect">
+      <object>objects\obj_controller_scanlines</object>
+      <object>objects\obj_player_scanlines</object>
+    </objects>
+    <objects name="Group_sepia">
+      <object>objects\obj_controller_sepia</object>
+      <object>objects\obj_player_sepia</object>
+    </objects>
+    <objects name="Group_sketch">
+      <object>objects\obj_controller_sketch</object>
+      <object>objects\obj_player_sketch</object>
+    </objects>
+    <objects name="Group_thermal">
+      <object>objects\obj_controller_thermal</object>
+      <object>objects\obj_player_thermal</object>
+    </objects>
+    <objects name="Group_wave">
+      <object>objects\obj_controller_wave</object>
+      <object>objects\obj_player_wave</object>
+    </objects>
+    <objects name="Group_radial_blur">
+      <object>objects\obj_controller_radial_blur</object>
+      <object>objects\obj_player_radial_blur</object>
+    </objects>
+    <objects name="Group_refraction">
+      <object>objects\obj_controller_refraction</object>
+      <object>objects\obj_player_refraction</object>
+    </objects>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\tl_boss1_pattern</timeline>
@@ -229,6 +341,24 @@
       <room>rooms\rm_versus_menu</room>
       <room>rooms\rm_versus_level</room>
     </rooms>
+    <room>rooms\rm_brightness_contrast</room>
+    <room>rooms\rm_ripple</room>
+    <room>rooms\rm_emboss</room>
+    <room>rooms\rm_shockwave</room>
+    <room>rooms\rm_gaussian_blur</room>
+    <room>rooms\rm_greyscale</room>
+    <room>rooms\rm_invert</room>
+    <room>rooms\rm_LED_effect</room>
+    <room>rooms\rm_magnify</room>
+    <room>rooms\rm_mosaic</room>
+    <room>rooms\rm_posterization</room>
+    <room>rooms\rm_scanlines</room>
+    <room>rooms\rm_sepia</room>
+    <room>rooms\rm_sketch</room>
+    <room>rooms\rm_thermal</room>
+    <room>rooms\rm_wave</room>
+    <room>rooms\rm_refraction</room>
+    <room>rooms\rm_radial_blur</room>
   </rooms>
   <constants number="13">
     <constant name="PIXEL_CONST">8</constant>
