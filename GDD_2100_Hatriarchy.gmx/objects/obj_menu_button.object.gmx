@@ -66,7 +66,8 @@ prev_room = undefined;
         room_goto(rm_training);
         break;
     case 1:
-        // Goto story mode menu
+        // Goto story mode menu (and disable hard mode)
+        global.hardmode = false;
         room_goto(rm_story_mode_menu);
         break;
     case 2:
@@ -84,6 +85,15 @@ prev_room = undefined;
     case 5:
         // Goto versus mode menu
         room_goto(rm_versus_menu);
+        break;
+    case 6:
+        // Goto achievements screen
+        room_goto(rm_achievements);
+        break;       
+    case 7:
+        // Enable hardmode and goto storymode
+        global.hardmode = true;
+        room_goto(rm_story_mode_menu);
         break;
         
     /*

@@ -41,10 +41,6 @@ hud_life.side = "right";
 
 curr_cycle_done = false;
 curr_cycle_setup = false;
-timeline = timeline_add();
-timeline_index = timeline;
-timeline_loop = false;
-timeline_max = 0;
 
 state = scr_boss1_state_idle;
 this_dir = undefined;
@@ -53,6 +49,7 @@ steps_elapsed = 0;
 delay = 0;
 
 /* HOVER STUFF */
+if global.hardmode y -= 32 * PIXEL_CONST;
 anchor_y = y;
 frequency = 0.1;
 amplitude = 10;

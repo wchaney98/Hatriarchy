@@ -28,6 +28,7 @@
             <string>creator = noone;
 new_xscale = image_xscale;
 side = "unset";
+max_life = 100;
 </string>
           </argument>
         </arguments>
@@ -50,8 +51,8 @@ side = "unset";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var new_col = make_colour_rgb(255 * (creator.life / 100), 0, 255 * (creator.life / 100));
-new_xscale = scr_tween(new_xscale, creator.life / 100, 0.2);
+            <string>var new_col = make_colour_rgb(255 * (creator.life / max_life), 0, 255 * (creator.life / max_life));
+new_xscale = scr_tween(new_xscale, creator.life / max_life, 0.2);
 if (side == "left")
     draw_sprite_ext(spr_boss_life_fill, 0, x, y, new_xscale, image_yscale, 0, new_col, 1);
 else

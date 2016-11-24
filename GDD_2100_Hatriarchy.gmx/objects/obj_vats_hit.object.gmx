@@ -56,11 +56,13 @@ image_speed = 0.1;
     if not (target.blocking &amp;&amp; target.block_loc == loc) 
     {
         target.life -= creator.damage;
+        obj_achievement_tracker.total_dmg_dealt += creator.damage;
         scr_combo_add_and_check(creator);
     }
     else 
     {
-        target.life -= creator.damage / 2;
+        target.life -= creator.damage / 4;
+        obj_achievement_tracker.total_dmg_dealt += creator.damage / 4;
         scr_reset_combo(creator);
     }
     instance_destroy();

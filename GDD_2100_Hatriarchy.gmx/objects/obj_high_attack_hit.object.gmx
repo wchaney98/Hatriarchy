@@ -68,6 +68,7 @@ image_index = 0;
         if (coll == creator)
         {
             creator.life -= creator.damage;
+            obj_achievement_tracker.total_dmg_dealt += creator.damage;
         }
         if (coll != noone &amp;&amp; coll != creator)
         {
@@ -107,6 +108,7 @@ image_index = 0;
             else
             {
                 coll.life -= creator.damage;
+                obj_achievement_tracker.total_dmg_dealt += creator.damage;
                 switch(creator)
                 {
                     case obj_player1_vs:

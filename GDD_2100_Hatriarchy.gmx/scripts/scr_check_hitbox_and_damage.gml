@@ -30,15 +30,38 @@ if (other.id != creator.id)
                 top_right_y = bottom_left_y - ((s.bbox_top - s.bbox_bottom) / 3);
                 break;
         }
-        if collision_rectangle(bottom_left_x, bottom_left_y, top_right_x, top_right_y, s.object_index, false, true) == id
+        var coll;
+        var this_object_index = object_index;
+        with (other)
         {
-            if (other.object_index = obj_player2_vs)
+            coll = collision_rectangle(bottom_left_x, bottom_left_y, top_right_x, top_right_y, this_object_index, false, true);
+        }
+        if coll == id
+        {
+            show_debug_message(object_get_name(coll.object_index));
+            if (other.object_index == obj_player2_vs or other.object_index = obj_player1_vs)
                 other.x += sign(other.x - creator.x) * 8;
-        } 
+        } else
+        {
+            other.life -= argument0;
+            obj_achievement_tracker.total_dmg_dealt += argument0;
+            switch(object_index)
+            {
+                case obj_player1_vs:
+                    if (other.object_index == obj_player2_vs)
+                        other.x += sign(other.x - creator.x) * 8;
+                    break;
+                case obj_player2_vs:
+                    if (other.object_index == obj_player1_vs)
+                        other.x += sign(other.x - creator.x) * 8;
+                    break;
+            }
+        }
     } 
     else
     {
         other.life -= argument0;
+        obj_achievement_tracker.total_dmg_dealt += argument0;
         switch(object_index)
         {
             case obj_player1_vs:
@@ -51,7 +74,7 @@ if (other.id != creator.id)
                 break;
         }
     }
-    show_debug_message(object_get_name(other.object_index) +  " life: " + string(other.life));
+    //show_debug_message(object_get_name(other.object_index) +  " life: " + string(other.life));
     if (creator != noone)
     {
         if !(other.blocking && other.block_loc == argument2)

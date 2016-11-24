@@ -53,6 +53,7 @@
   <instances>
     <instance objName="obj_menu_button" x="512" y="32" name="inst_83F8565D" locked="0" code="text = &quot;Back&quot;;&#xA;action = -1;&#xA;prev_room = rm_story_mode_menu;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_goto_stage_button" x="512" y="256" name="inst_1AA264C1" locked="0" code="text = &quot;Stage 1&quot;;&#xA;action = 1;&#xA;disabled = false;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_goto_stage_button" x="512" y="192" name="inst_A3012C5E" locked="0" code="text = &quot;Tutorial&quot;;&#xA;image_blend = c_yellow;&#xA;action = 0;&#xA;disabled = false;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

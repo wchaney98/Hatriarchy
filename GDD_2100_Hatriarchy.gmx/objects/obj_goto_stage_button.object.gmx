@@ -56,9 +56,16 @@ disabled = false;
         STORY MODE MAP
     */
     
+    case 0:
+        // Goto tutorial manually
+        room_goto(rm_story_tutorial);
+        break;
+    
     case 1:
         // Goto first level which queues tutorial
-        room_goto(rm_story_level1);
+        if global.first_tutorial_done
+            room_goto(rm_story_level1);
+        else room_goto(rm_story_tutorial);
         break;
 }
 </string>

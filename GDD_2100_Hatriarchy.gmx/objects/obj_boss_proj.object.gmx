@@ -53,9 +53,15 @@
             top_right_y = bottom_left_y - ((s.bbox_top - s.bbox_bottom) / 3);
             break;
     }
-    if collision_rectangle(bottom_left_x, bottom_left_y, top_right_x, top_right_y, other.object_index, false, true) == other.id
+    var coll;
+    with (other)
+    {
+        coll = collision_rectangle(bottom_left_x, bottom_left_y, top_right_x, top_right_y, obj_boss_proj, false, true);
+    }
+    if coll == id
     {
         instance_destroy();
+        exit;
     } else
     {
         other.life -= damage;

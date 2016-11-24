@@ -14,7 +14,7 @@ life_last_step = life;
 been_hit = false;
 
 // Check for vats key (enable/disable)
-if (player_one_vats_prs)
+if (player_one_vats_prs and action_pts >= 20)
 {
     vats = true;
     scr_set_vats_for_right_player(true);
@@ -84,10 +84,6 @@ if (h_speed != 0)
     image_xscale = sign(h_speed) * PIXEL_CONST;
 } else sprite_index = avatar_idle;
 
-///scr_gravity()
-
-scr_get_input();
-
 // Add gravity
 if (!place_meeting(x, y + 1, obj_ground)){
     v_speed += grav;
@@ -111,4 +107,9 @@ while (place_meeting(x, y, obj_ground))
 {
     y -= 1;
 }
+
+if x < -10
+    x = room_width
+if x > room_width + 10
+    x = 0;
 

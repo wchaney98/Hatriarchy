@@ -43,6 +43,7 @@ if (player_one_confirm_action && vats_selection_finalized)
 {
     sprite_index = avatar_think_angry;
     state = scr_state_player_vats_doing_attacks;
+    obj_achievement_tracker.track_total_vats_use += 1;
 }
 
 // Confirm selection

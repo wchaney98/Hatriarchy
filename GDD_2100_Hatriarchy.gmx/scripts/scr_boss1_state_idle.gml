@@ -3,7 +3,10 @@ if (steps_elapsed == 0)
 {
     sprite_index = spr_boss1_idle;
     image_speed = 0.1;
-    delay = choose(room_speed, room_speed * 1.5, room_speed * 2);
+    if global.hardmode
+        delay = choose(room_speed / 2, room_speed, room_speed * 1.2);
+    else
+        delay = choose(room_speed, room_speed * 1.5, room_speed * 2);
 }
 
 if steps_elapsed >= delay

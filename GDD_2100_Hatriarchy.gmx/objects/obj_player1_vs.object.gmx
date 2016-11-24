@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>state = scr_state_player_moving;
 
-scr_avatar_create(spr_player_idle_male_asian, spr_player_think_male_asian, spr_player_think_angry_male_asian, spr_player_walk_male_asian, spr_player_low_attack_male_asian, spr_player_mid_attack_male_asian, spr_player_high_attack_male_asian, spr_player_low_block_male_asian, spr_player_mid_block_male_asian, spr_player_high_block_male_asian, spr_player_hit_male_asian, spr_player_crouch_male_asian);
+scr_avatar_create("");
 
 attacking = false;
 high_attack_spd = 8;

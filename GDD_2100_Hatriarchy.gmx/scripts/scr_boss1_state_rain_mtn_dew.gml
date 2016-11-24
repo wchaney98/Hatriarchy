@@ -6,8 +6,15 @@ if (steps_elapsed == 0)
     delay = choose(room_speed, room_speed * 2, room_speed * 3);
 }
 
-if (steps_elapsed % (room_speed / 2) == 0)
-    scr_boss1_create_falling_proj();
+if global.hardmode
+{
+    if (steps_elapsed % (room_speed / 30) == 0)
+        scr_boss1_create_falling_proj();
+} else
+{
+    if (steps_elapsed % (room_speed / 2) == 0)
+        scr_boss1_create_falling_proj();
+}
     
 if (steps_elapsed >= delay)
 {

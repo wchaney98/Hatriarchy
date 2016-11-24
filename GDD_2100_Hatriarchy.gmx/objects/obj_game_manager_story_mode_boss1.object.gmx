@@ -70,6 +70,7 @@ one_deactivated = false;
         fo.new_room = rm_story_map;
         fo.fade_color = make_colour_rgb(255, 255, 255);
         one_deactivated = true;
+        if obj_player.life == 100 obj_achievement_tracker.boss1_perfect = true;
     }
 }
 </string>

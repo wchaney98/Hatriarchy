@@ -2,7 +2,7 @@
 attacking = false;
 hit_created = false;
 attack_loc = undefined;
-if (high_attack_obj_created)
+if (high_attack_obj_created and !is_undefined(high_attack_obj))
 {
     high_attack_obj.image_speed = 0.1;
     high_attack_obj.triggered = true;

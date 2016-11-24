@@ -52,6 +52,7 @@ block_loc = LOC_HIGH;
           <argument>
             <kind>1</kind>
             <string>damage_taken = -life;
+if (keyboard_check_pressed(vk_escape)) room_goto(rm_main_menu);
 </string>
           </argument>
         </arguments>

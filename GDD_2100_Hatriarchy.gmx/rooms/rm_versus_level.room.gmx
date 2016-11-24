@@ -54,6 +54,7 @@
     <instance objName="obj_player2_vs" x="800" y="512" name="inst_422BF017" locked="0" code="" scaleX="8" scaleY="8" colour="4294967295" rotation="0"/>
     <instance objName="obj_ground" x="0" y="640" name="inst_55048B6C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player1_vs" x="192" y="512" name="inst_B1767343" locked="0" code="" scaleX="8" scaleY="8" colour="4294967295" rotation="0"/>
+    <instance objName="obj_versus_manager" x="192" y="96" name="inst_25E893F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
