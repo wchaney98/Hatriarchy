@@ -64,6 +64,7 @@ image_index = 0;
     }
     if (!check_hit)
     {
+        audio_play_sound_at(snd_high_attack_rls, x, y, 0, 100, 100, 0, false, 1);
         var coll = collision_point(x, y, obj_alive, false, false);
         if (coll == creator)
         {

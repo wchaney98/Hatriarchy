@@ -53,18 +53,21 @@ image_speed = 0.1;
             <kind>1</kind>
             <string>if (image_index &gt;= 2) 
 {
+    var sound;
     if not (target.blocking &amp;&amp; target.block_loc == loc) 
     {
-        target.life -= creator.damage;
+        sound = snd_vats_explode;
         obj_achievement_tracker.total_dmg_dealt += creator.damage;
         scr_combo_add_and_check(creator);
     }
     else 
     {
+        sound = snd_block_proj;
         target.life -= creator.damage / 4;
         obj_achievement_tracker.total_dmg_dealt += creator.damage / 4;
         scr_reset_combo(creator);
     }
+    audio_play_sound_at(sound, x, y, 0, 100, 100, 0, false, 1);
     instance_destroy();
 }
 </string>

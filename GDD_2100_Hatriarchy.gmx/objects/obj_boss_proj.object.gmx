@@ -60,17 +60,20 @@
     }
     if coll == id
     {
+        audio_play_sound_at(snd_block_proj, x, y, 0, 100, 100, 0, false, 1);
         instance_destroy();
         exit;
     } else
     {
         other.life -= damage;
+        audio_play_sound_at(choose(snd_player_hit_1, snd_player_hit_2, snd_player_hit_3), x, y, 0, 100, 100, 0, false, 1);
         other.state = scr_state_player_hit;
         instance_destroy();
     }
 } else
 {
     other.life -= damage;
+    audio_play_sound_at(choose(snd_player_hit_1, snd_player_hit_2, snd_player_hit_3), x, y, 0, 100, 100, 0, false, 1);
     other.state = scr_state_player_hit;
     instance_destroy();
 }

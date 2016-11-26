@@ -10,6 +10,7 @@ if (!attacking)
     switch (attack_loc)
     {
         case LOC_HIGH:
+            audio_play_sound_at(snd_high_attack, x, y, 0, 100, 100, 0, false, 1);
             sprite_index = avatar_high_attack;
             break;
         case LOC_MID:

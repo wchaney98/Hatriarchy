@@ -27,8 +27,8 @@
             <kind>1</kind>
             <string>damage_taken = 0;
 life = 0;
-blocking = true;
-block_loc = LOC_HIGH;
+blocking = false;
+blocking_loc = 0;
 </string>
           </argument>
         </arguments>

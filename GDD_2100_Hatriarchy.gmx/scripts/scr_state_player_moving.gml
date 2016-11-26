@@ -8,6 +8,7 @@ dir = sign(image_xscale); // get direction player is facing
 if (life_last_step > life)
 {
     state = scr_state_player_hit;
+    audio_play_sound_at(choose(snd_player_hit_1, snd_player_hit_2, snd_player_hit_3), x, y, 0, 100, 100, 0, false, 1);
     exit;
 }
 life_last_step = life;
@@ -19,6 +20,7 @@ if (player_one_vats_prs and action_pts >= 20)
     vats = true;
     scr_set_vats_for_right_player(true);
     scr_vats_get_targets(); 
+    audio_play_sound_at(snd_vats_enter, x, y, 0, 100, 100, 0, false, 1);
     state = scr_state_player_vats;
     exit;
 }
@@ -34,12 +36,14 @@ if (player_one_mid_attack_prs)
 {
     state = scr_state_player_attack;
     attack_loc = LOC_MID;
+    audio_play_sound_at(snd_woosh_low, x, y, 0, 100, 100, 0, false, 1);
     exit;
 }
 if (player_one_low_attack_prs)
 {
     state = scr_state_player_attack;
     attack_loc = LOC_LOW;
+    audio_play_sound_at(snd_woosh_quick, x, y, 0, 100, 100, 0, false, 1);
     exit;
 }
 
@@ -86,6 +90,7 @@ if (h_speed != 0)
 
 // Add gravity
 if (!place_meeting(x, y + 1, obj_ground)){
+    hit_ground = false;
     v_speed += grav;
     
     // Down key
@@ -96,7 +101,18 @@ if (!place_meeting(x, y + 1, obj_ground)){
 else {
     // Jump
     v_speed = 0;
-    if (player_one_jump_prs) v_speed = -jump_height;
+    if (player_one_jump_prs) 
+    {
+        v_speed = -jump_height;
+        audio_play_sound_at(snd_woosh_jump, x, y, 0, 100, 100, 0, false, 1);
+    }
+    
+    // Audio when hit ground
+    if not hit_ground
+    {
+        audio_play_sound_at(snd_hit_ground, x, y, 0, 100, 100, 0, false, 1);
+        hit_ground = true;
+    }
 }
 
 

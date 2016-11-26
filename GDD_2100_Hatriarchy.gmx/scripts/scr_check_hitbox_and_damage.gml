@@ -38,14 +38,13 @@ if (other.id != creator.id)
         }
         if coll == id
         {
-            show_debug_message(object_get_name(coll.object_index));
             if (other.object_index == obj_player2_vs or other.object_index = obj_player1_vs)
                 other.x += sign(other.x - creator.x) * 8;
         } else
         {
             other.life -= argument0;
             obj_achievement_tracker.total_dmg_dealt += argument0;
-            switch(object_index)
+            switch(other.object_index)
             {
                 case obj_player1_vs:
                     if (other.object_index == obj_player2_vs)
@@ -56,13 +55,22 @@ if (other.id != creator.id)
                         other.x += sign(other.x - creator.x) * 8;
                     break;
             }
+            switch(object_index)
+            {
+                case obj_low_hitbox:
+                    audio_play_sound_at(snd_hit_kick, x, y, 0, 100, 100, 0, false, 1);
+                    break;
+                case obj_mid_hitbox:
+                    audio_play_sound_at(snd_hit_hard, x, y, 0, 100, 100, 0, false, 1);
+                    break;
+            }
         }
     } 
     else
     {
         other.life -= argument0;
         obj_achievement_tracker.total_dmg_dealt += argument0;
-        switch(object_index)
+        switch(other.object_index)
         {
             case obj_player1_vs:
                 if (other.object_index == obj_player2_vs)
@@ -71,6 +79,15 @@ if (other.id != creator.id)
             case obj_player2_vs:
                 if (other.object_index == obj_player1_vs)
                     other.x += sign(other.x - creator.x) * 8;
+                break;
+        }
+        switch(object_index)
+        {
+            case obj_low_hitbox:
+                audio_play_sound_at(snd_hit_kick, x, y, 0, 100, 100, 0, false, 1);
+                break;
+            case obj_mid_hitbox:
+                audio_play_sound_at(snd_hit_hard, x, y, 0, 100, 100, 0, false, 1);
                 break;
         }
     }

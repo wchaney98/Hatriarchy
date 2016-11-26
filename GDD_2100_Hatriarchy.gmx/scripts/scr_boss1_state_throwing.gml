@@ -4,7 +4,7 @@ if (steps_elapsed == 0)
     if global.hardmode anchor_y += 32 * PIXEL_CONST;
     sprite_index = spr_boss1_throwing;
     image_speed = 0.1;
-    if global.hard_mode delay = choose(room_speed * 2, room_speed * 2.5, room_speed * 3.5);
+    if global.hardmode delay = choose(room_speed * 2, room_speed * 2.5, room_speed * 3.5);
     else delay = choose(room_speed * 1, room_speed * 2.5, room_speed * 1.5);
     if x < room_width / 2 this_dir = "right" else this_dir = "left";
 }

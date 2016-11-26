@@ -40,6 +40,7 @@ if (action_pts >= 20)
     o.creator = id;
     o.loc = vats_selected_loc;
     action_pts -= 20;
+    audio_play_sound_at(snd_vats_hit, x, y, 0, 100, 100, 0, false, 1);
     scr_sleep(250);
 } else 
 {

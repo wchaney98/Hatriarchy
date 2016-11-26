@@ -64,7 +64,7 @@ if ((one_won or two_won) and not game_tracked)
     obj_achievement_tracker.track_total_vs_games += 1;
     game_tracked = true;
     var fo = instance_create(0, 0, eff_fadeout);
-    fo.new_room = rm_main_menu;
+    fo.new_room = rm_versus_menu;
     fo.fade_color = make_colour_rgb(0, 0, 0);
 }
 </string>

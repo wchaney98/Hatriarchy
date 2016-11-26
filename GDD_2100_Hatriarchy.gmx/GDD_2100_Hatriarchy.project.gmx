@@ -6,7 +6,33 @@
   <NewExtensions>
     <extension index="0">extensions\Free Shaders</extension>
   </NewExtensions>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sounds name="Woosh">
+      <sound>sound\snd_woosh_low</sound>
+      <sound>sound\snd_woosh_quick</sound>
+      <sound>sound\snd_woosh_jump</sound>
+    </sounds>
+    <sounds name="Hit">
+      <sound>sound\snd_hit_hard</sound>
+      <sound>sound\snd_hit_kick</sound>
+      <sound>sound\snd_hit_ground</sound>
+    </sounds>
+    <sounds name="Magic">
+      <sound>sound\snd_high_attack</sound>
+      <sound>sound\snd_high_attack_rls</sound>
+      <sound>sound\snd_vats_hit</sound>
+      <sound>sound\snd_vats_explode</sound>
+      <sound>sound\snd_vats_enter</sound>
+    </sounds>
+    <sounds name="Player Pain">
+      <sound>sound\snd_player_hit_1</sound>
+      <sound>sound\snd_player_hit_2</sound>
+      <sound>sound\snd_player_hit_3</sound>
+    </sounds>
+    <sounds name="Block">
+      <sound>sound\snd_block_proj</sound>
+    </sounds>
+  </sounds>
   <sprites name="sprites">
     <sprites name="Player">
       <sprite>sprites\spr_low_hitbox</sprite>
@@ -363,6 +389,7 @@
     <timeline>timelines\tl_boss1_pattern</timeline>
   </timelines>
   <rooms name="rooms">
+    <room>rooms\rm_init</room>
     <room>rooms\rm_main_menu</room>
     <room>rooms\rm_training</room>
     <room>rooms\rm_avatar_creation</room>

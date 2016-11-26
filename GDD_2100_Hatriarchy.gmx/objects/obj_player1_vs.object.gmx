@@ -76,6 +76,7 @@ spd = 5;
 grav = 1;
 jump_height = 22;
 stomp_force = 5;
+hit_ground = true;
 
 h_speed = 0;
 v_speed = 0;
