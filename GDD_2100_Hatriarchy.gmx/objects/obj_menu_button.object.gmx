@@ -95,6 +95,10 @@ prev_room = undefined;
         global.hardmode = true;
         room_goto(rm_story_mode_menu);
         break;
+    case 8:
+        // Goto options menu
+        room_goto(rm_options);
+        break;
         
     /*
         STORY MODE MENU

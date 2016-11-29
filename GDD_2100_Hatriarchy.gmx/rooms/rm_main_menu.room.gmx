@@ -60,6 +60,7 @@
     <instance objName="obj_menu_button" x="512" y="320" name="inst_EA82B3CE" locked="0" code="text = &quot;Versus Mode&quot;;&#xA;action = 5;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_menu_button" x="512" y="384" name="inst_CBC382D4" locked="0" code="text = &quot;Achievements&quot;;&#xA;action = 6;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_menu_button" x="512" y="192" name="inst_229A18EC" locked="0" code="text = &quot;tryhard story mode&quot;;&#xA;action = 7;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_menu_button" x="928" y="704" name="inst_060AF24E" locked="0" code="text = &quot;&quot;;&#xA;action = 8;&#xA;sprite_index = spr_options_icon;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -30,6 +30,17 @@
 global.first_tutorial_done = false;
 // And see if hardmode is on
 global.hardmode = false;
+// Other globals
+global.curr_cutscene = 0;
+global.curr_cutscene_dest = undefined;
+global.cutscene1 = false;
+global.cutscene2 = false;
+global.cutscene3 = false;
+
+// Options menu
+global.one_hand_mode = false;
+global.blind_mode = false;
+
 // Set audio listener pos
 audio_listener_position(room_width / 2, room_height / 2, 0);
 audio_listener_orientation(0, -1, 0, 0, 0, -1);
@@ -120,6 +131,30 @@ use_vats_hundred_times = track_total_vats_use &gt;= 100;
 use_vats_5hundred_times = track_total_vats_use &gt;= 500;
 dealt_thousand_dmg = total_dmg_dealt &gt;= 1000;
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_texture_flush();
+show_debug_message("flush");
 </string>
           </argument>
         </arguments>

@@ -86,6 +86,10 @@ if (h_speed != 0)
     sprite_index = avatar_walk;
     image_speed = 0.1;
     image_xscale = sign(h_speed) * PIXEL_CONST;
+    if image_index == 1 and v_speed = 0
+    {
+        audio_play_sound_at(snd_walk_cycle, x, y+100, 0, 100, 100, 0, false, 1);
+    }
 } else sprite_index = avatar_idle;
 
 // Add gravity

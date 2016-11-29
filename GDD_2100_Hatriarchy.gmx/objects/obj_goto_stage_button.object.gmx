@@ -57,15 +57,31 @@ disabled = false;
     */
     
     case 0:
-        // Goto tutorial manually
-        room_goto(rm_story_tutorial);
+        // But first goto cutscene
+        if not global.cutscene1
+        {
+            global.cutscene1 = true;
+            global.curr_cutscene = 1;
+            global.curr_cutscene_dest = rm_story_tutorial
+            room_goto(rm_cutscenes);
+        } else
+            room_goto(rm_story_tutorial);
         break;
     
     case 1:
-        // Goto first level which queues tutorial
-        if global.first_tutorial_done
-            room_goto(rm_story_level1);
-        else room_goto(rm_story_tutorial);
+        // But first goto cutscene
+        if not global.cutscene1
+        {
+            var dest;
+            if global.first_tutorial_done global.curr_cutscene_dest = rm_story_level1;
+            else global.curr_cutscene_dest = rm_story_tutorial
+            global.curr_cutscene = 1;
+            global.cutscene1 = true;
+            room_goto(rm_cutscenes);
+        } else
+            if global.first_tutorial_done
+                room_goto(rm_story_level1);
+            else room_goto(rm_story_tutorial);
         break;
 }
 </string>

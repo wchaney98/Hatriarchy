@@ -16,6 +16,7 @@
       <sound>sound\snd_hit_hard</sound>
       <sound>sound\snd_hit_kick</sound>
       <sound>sound\snd_hit_ground</sound>
+      <sound>sound\snd_walk_cycle</sound>
     </sounds>
     <sounds name="Magic">
       <sound>sound\snd_high_attack</sound>
@@ -120,6 +121,8 @@
     </sprites>
     <sprites name="Menus">
       <sprite>sprites\spr_menu_button</sprite>
+      <sprite>sprites\spr_option</sprite>
+      <sprite>sprites\spr_options_icon</sprite>
       <sprite>sprites\spr_arrow_button</sprite>
       <sprite>sprites\spr_logo</sprite>
       <sprite>sprites\spr_instructions</sprite>
@@ -177,6 +180,7 @@
       <script>scripts\scr_draw_achievement.gml</script>
       <script>scripts\scr_check_and_draw_ach_notif.gml</script>
       <script>scripts\scr_url_encode.gml</script>
+      <script>scripts\scr_init_cutscene_manager.gml</script>
     </scripts>
     <scripts name="Player Scripts">
       <script>scripts\scr_state_player_moving.gml</script>
@@ -265,6 +269,7 @@
     <objects name="Story Mode">
       <object>objects\obj_game_manager_story_mode_tutorial</object>
       <object>objects\obj_game_manager_story_mode_boss1</object>
+      <object>objects\obj_cutscene_manager</object>
     </objects>
     <objects name="Versus Mode">
       <object>objects\obj_versus_manager</object>
@@ -274,6 +279,7 @@
     </objects>
     <objects name="Menus">
       <object>objects\obj_menu_button</object>
+      <object>objects\obj_option_button</object>
       <object>objects\obj_arrow_button</object>
       <objects name="Story Mode">
         <object>objects\obj_goto_stage_button</object>
@@ -283,6 +289,7 @@
       <object>objects\obj_credits</object>
       <object>objects\obj_achievements_menu</object>
       <object>objects\obj_tweet_achievements_button</object>
+      <object>objects\obj_blind_manager</object>
     </objects>
     <objects name="Bosses">
       <objects name="Boss1">
@@ -397,8 +404,10 @@
     <room>rooms\rm_instructions</room>
     <room>rooms\rm_credits</room>
     <room>rooms\rm_achievements</room>
+    <room>rooms\rm_options</room>
     <rooms name="Story Mode">
       <room>rooms\rm_story_map</room>
+      <room>rooms\rm_cutscenes</room>
       <room>rooms\rm_story_tutorial</room>
       <room>rooms\rm_story_level1</room>
     </rooms>
