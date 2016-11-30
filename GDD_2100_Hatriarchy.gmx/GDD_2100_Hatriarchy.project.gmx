@@ -33,6 +33,13 @@
     <sounds name="Block">
       <sound>sound\snd_block_proj</sound>
     </sounds>
+    <sounds name="Blind">
+      <sound>sound\snd_blind_main_menu</sound>
+      <sound>sound\snd_blind_backspace</sound>
+      <sound>sound\snd_blind_story_mode</sound>
+      <sound>sound\snd_blind_story_mode_map</sound>
+      <sound>sound\snd_blind_versus</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprites name="Player">
