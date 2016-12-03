@@ -37,6 +37,8 @@ hud_life = instance_create(room_width / 2 + 10, 10, obj_hud_boss_life);
 hud_life.creator = id;
 hud_life.side = "right";
 hud_life.max_life = life;
+
+sonar_timer_steps = 0;
 </string>
           </argument>
         </arguments>
@@ -92,6 +94,14 @@ hud_life.max_life = life;
     life_last_step = life;
 }
 else life = max_life;
+
+if global.blind_mode and sonar_timer_steps &gt;= point_distance(x, y, obj_player.x, obj_player.y) / 7
+{
+    audio_play_sound(snd_blind_sonar, 1, false);
+    sonar_timer_steps = 0;
+}
+
+sonar_timer_steps++;
 </string>
           </argument>
         </arguments>

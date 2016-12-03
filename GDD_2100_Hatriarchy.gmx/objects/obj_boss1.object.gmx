@@ -48,6 +48,8 @@ show_hit = false;
 steps_elapsed = 0;
 delay = 0;
 
+sonar_timer_steps = 0;
+
 /* HOVER STUFF */
 if global.hardmode y -= 32 * PIXEL_CONST;
 anchor_y = y;
@@ -110,6 +112,14 @@ if life &lt; life_last_step
     alarm[0] = room_speed / 2;
 }
 life_last_step = life;
+
+if global.blind_mode and sonar_timer_steps &gt;= point_distance(x, y, obj_player.x, obj_player.y) / 7
+{
+    audio_play_sound(snd_blind_sonar, 1, false);
+    sonar_timer_steps = 0;
+}
+
+sonar_timer_steps++;
 </string>
           </argument>
         </arguments>

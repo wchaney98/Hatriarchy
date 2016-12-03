@@ -39,6 +39,18 @@
       <sound>sound\snd_blind_story_mode</sound>
       <sound>sound\snd_blind_story_mode_map</sound>
       <sound>sound\snd_blind_versus</sound>
+      <sound>sound\snd_blind_sonar</sound>
+      <sound>sound\snd_cutscene_1</sound>
+      <sound>sound\snd_you_win</sound>
+      <sound>sound\snd_you_lose</sound>
+      <sound>sound\snd_blind_instructions</sound>
+      <sound>sound\snd_blind_tutorial</sound>
+    </sounds>
+    <sounds name="Boss">
+      <sound>sound\snd_boss_proj</sound>
+      <sound>sound\snd_boss_teleport_start</sound>
+      <sound>sound\snd_boss_teleport_end</sound>
+      <sound>sound\snd_boss_proj_fall</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -166,6 +178,10 @@
       <sprite>sprites\spr_tut_attacking</sprite>
       <sprite>sprites\spr_tut_blocking</sprite>
       <sprite>sprites\spr_tut_vats</sprite>
+    </sprites>
+    <sprites name="Cutscenes">
+      <sprite>sprites\spr_cutscene1_2</sprite>
+      <sprite>sprites\spr_cutscene1_1</sprite>
     </sprites>
     <sprite>sprites\spr_ground</sprite>
     <sprite>sprites\spr_walk</sprite>

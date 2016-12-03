@@ -67,15 +67,16 @@ prev_room = undefined;
         break;
     case 1:
         // Goto story mode menu (and disable hard mode)
-        global.hardmode = false;
+        global.hardmode = false;       
         room_goto(rm_story_mode_menu);
         break;
     case 2:
-        // Goto instructions page
+        // Goto instructions page       
         room_goto(rm_instructions);
         break;  
     case 3:
         // Goto credits page
+        
         room_goto(rm_credits);
         break;
     case 4:

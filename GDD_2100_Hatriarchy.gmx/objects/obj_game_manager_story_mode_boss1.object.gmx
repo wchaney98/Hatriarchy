@@ -55,6 +55,7 @@ one_deactivated = false;
 {
     if obj_player.life &lt;= 0
     {
+        audio_play_sound_at(snd_you_lose, x, y, 0, 100, 100, 0, false, 1);
         lost = true;
         instance_deactivate_object(obj_player);
         var fo = instance_create(0, 0, eff_fadeout);
@@ -64,6 +65,7 @@ one_deactivated = false;
     }
     if obj_boss1.life &lt;= 0
     {
+        audio_play_sound_at(snd_you_win, x, y, 0, 100, 100, 0, false, 1);
         won = true;
         instance_deactivate_object(obj_boss1);
         var fo = instance_create(0, 0, eff_fadeout);

@@ -45,6 +45,8 @@ global.blind_mode = false;
 audio_listener_position(room_width / 2, room_height / 2, 0);
 audio_listener_orientation(0, -1, 0, 0, 0, -1);
 
+global.current_room = room;
+
 boss1_perfect = false; // A good start
 boss1_perfect_notif = false;
 boss2_perfect = false; // Not half bad
@@ -131,6 +133,43 @@ use_vats_hundred_times = track_total_vats_use &gt;= 100;
 use_vats_5hundred_times = track_total_vats_use &gt;= 500;
 dealt_thousand_dmg = total_dmg_dealt &gt;= 1000;
 
+if global.current_room != room
+{
+    global.current_room = room;
+    audio_stop_all();
+    switch(room)
+    {
+        case rm_main_menu:
+            if global.blind_mode audio_play_sound(snd_blind_main_menu, 1, false);
+            break;
+        case rm_story_mode_menu:
+            if global.blind_mode audio_play_sound(snd_blind_story_mode, 1, false);
+            break;
+        case rm_instructions:
+            if global.blind_mode audio_play_sound(snd_blind_instructions, 1, false);
+            break;
+        case rm_achievements:
+        case rm_options:
+        case rm_credits:
+            if global.blind_mode audio_play_sound(snd_blind_backspace, 1, false);
+            break;
+        case rm_versus_menu:
+            if global.blind_mode audio_play_sound(snd_blind_versus, 1, false);
+            break;
+        case rm_story_map:
+            if global.blind_mode audio_play_sound(snd_blind_story_mode_map, 1, false);
+            break;
+        case rm_cutscenes:
+            if global.curr_cutscene == 1 audio_play_sound(snd_cutscene_1, 1, false);
+            break;
+        case rm_story_tutorial:
+            if global.blind_mode audio_play_sound(snd_blind_tutorial, 1, false);
+            break;
+    }
+}    
+
+global.current_room = room;
+
 </string>
           </argument>
         </arguments>
@@ -154,7 +193,6 @@ dealt_thousand_dmg = total_dmg_dealt &gt;= 1000;
           <argument>
             <kind>1</kind>
             <string>draw_texture_flush();
-show_debug_message("flush");
 </string>
           </argument>
         </arguments>

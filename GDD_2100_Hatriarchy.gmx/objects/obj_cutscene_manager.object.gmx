@@ -35,7 +35,9 @@ destination_rm = undefined;
 switch (global.curr_cutscene)
 {
     case 1:
-        scr_init_cutscene_manager(3, global.curr_cutscene_dest, spr_mid_hitbox, "Test1", spr_logo, "Byeah");
+            scr_init_cutscene_manager(7, global.curr_cutscene_dest, spr_cutscene1_1, 
+            "the oppressive, white, male, privileged hat-people have enslaved your people", spr_cutscene1_2, 
+            "as the fabled savior, save your people, one evil patriarch at a time!");
         break;
     case 2:
         break;
