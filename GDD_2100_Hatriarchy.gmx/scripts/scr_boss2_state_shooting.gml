@@ -4,8 +4,9 @@ if (steps_elapsed == 0)
     sprite_index = choose(spr_boss2_peaking_left, spr_boss2_peaking_right);
     delay = choose(room_speed * 1, room_speed * 2);
 }
-
-if steps_elapsed % (room_speed / 3) == 0
+var tempo;
+if global.hardmode tempo = room_speed / 5; else tempo = room_speed / 3;
+if steps_elapsed % tempo == 0
 {
     sprite_index = choose(spr_boss2_peaking_left, spr_boss2_peaking_right);
     switch (sprite_index)
@@ -22,7 +23,7 @@ if steps_elapsed % (room_speed / 3) == 0
 
 if steps_elapsed >= delay
 {
-    state = choose(scr_boss2_state_idle);
+    state = choose(scr_boss2_state_idle, scr_boss2_state_sunburst);
     steps_elapsed = 0;
     exit;
 }

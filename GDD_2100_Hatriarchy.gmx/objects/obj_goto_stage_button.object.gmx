@@ -81,9 +81,11 @@ disabled = false;
                 global.cutscene1 = true;
                 room_goto(rm_cutscenes);
             } else
+            {
                 if global.first_tutorial_done
                     room_goto(rm_story_level1);
                 else room_goto(rm_story_tutorial);
+            }
             break;
             
         case 2:
@@ -94,7 +96,7 @@ disabled = false;
                 global.curr_cutscene = 2;
                 global.cutscene2 = true;
                 room_goto(rm_cutscenes);
-            }
+            } else room_goto(rm_story_level2);
     }
 }
 </string>

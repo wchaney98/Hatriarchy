@@ -46,11 +46,18 @@
       <sound>sound\snd_blind_instructions</sound>
       <sound>sound\snd_blind_tutorial</sound>
     </sounds>
-    <sounds name="Boss">
-      <sound>sound\snd_boss_proj</sound>
-      <sound>sound\snd_boss_teleport_start</sound>
-      <sound>sound\snd_boss_teleport_end</sound>
-      <sound>sound\snd_boss_proj_fall</sound>
+    <sounds name="Bosses">
+      <sounds name="Boss1">
+        <sound>sound\snd_boss_proj</sound>
+        <sound>sound\snd_boss_teleport_start</sound>
+        <sound>sound\snd_boss_teleport_end</sound>
+        <sound>sound\snd_boss_proj_fall</sound>
+      </sounds>
+      <sounds name="Boss2">
+        <sound>sound\snd_boss2_gatling</sound>
+        <sound>sound\snd_boss2_pistol</sound>
+        <sound>sound\snd_boss2_sunburst</sound>
+      </sounds>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -177,6 +184,7 @@
         <sprites name="Attacks">
           <sprite>sprites\spr_boss2_bullet_big</sprite>
           <sprite>sprites\spr_boss2_bullet_small</sprite>
+          <sprite>sprites\spr_boss2_sunburst</sprite>
         </sprites>
       </sprites>
     </sprites>
@@ -192,6 +200,8 @@
     <sprites name="Cutscenes">
       <sprite>sprites\spr_cutscene1_2</sprite>
       <sprite>sprites\spr_cutscene1_1</sprite>
+      <sprite>sprites\spr_cutscene2_1</sprite>
+      <sprite>sprites\spr_cutscene2_2</sprite>
     </sprites>
     <sprite>sprites\spr_ground</sprite>
     <sprite>sprites\spr_walk</sprite>
@@ -254,6 +264,7 @@
         <script>scripts\scr_boss2_state_gatling.gml</script>
         <script>scripts\scr_boss2_state_sunburst.gml</script>
         <script>scripts\scr_boss2_create_bullet.gml</script>
+        <script>scripts\scr_boss2_create_starburst.gml</script>
       </scripts>
       <script>scripts\scr_boss_create_projectile.gml</script>
     </scripts>
@@ -321,6 +332,7 @@
           <object>objects\obj_boss2</object>
           <object>objects\obj_boss2_bullet_small</object>
           <object>objects\obj_boss2_bullet_big</object>
+          <object>objects\obj_boss2_starburst</object>
         </objects>
         <object>objects\obj_boss_proj</object>
       </objects>
@@ -494,7 +506,7 @@
     <constant name="BLACK">7</constant>
     <constant name="LOW_AP">10</constant>
     <constant name="MID_AP">20</constant>
-    <constant name="HIGH_AP">5</constant>
+    <constant name="HIGH_AP">15</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

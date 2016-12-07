@@ -11,7 +11,7 @@ if (steps_elapsed == 0)
 
 if steps_elapsed >= delay
 {
-    state = choose(scr_boss2_state_shooting, scr_boss2_state_gatling);//, scr_boss2_state_sunburst);
+    state = choose(scr_boss2_state_shooting, scr_boss2_state_gatling, scr_boss2_state_sunburst);
     steps_elapsed = 0;
     exit;
 }
