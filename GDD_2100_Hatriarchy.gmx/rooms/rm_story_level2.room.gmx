@@ -6,7 +6,7 @@
   <vsnap>32</vsnap>
   <hsnap>32</hsnap>
   <isometric>0</isometric>
-  <speed>30</speed>
+  <speed>60</speed>
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
@@ -51,11 +51,10 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_menu_button" x="512" y="32" name="inst_83F8565D" locked="0" code="text = &quot;Back&quot;;&#xA;action = -1;&#xA;prev_room = rm_story_mode_menu;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_goto_stage_button" x="512" y="256" name="inst_1AA264C1" locked="0" code="text = &quot;Stage 1&quot;;&#xA;action = 1;&#xA;disabled = false;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_goto_stage_button" x="512" y="192" name="inst_A3012C5E" locked="0" code="text = &quot;Tutorial&quot;;&#xA;image_blend = c_yellow;&#xA;action = 0;&#xA;disabled = false;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_goto_stage_button" x="512" y="320" name="inst_17569183" locked="0" code="text = &quot;stage 2&quot;;&#xA;action = 2;&#xA;if !global.beat_stage_one disabled = true;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_goto_stage_button" x="512" y="384" name="inst_91BE2D47" locked="0" code="text = &quot;stage 3&quot;;&#xA;action = 3;&#xA;if not global.beat_stage_two disabled = true;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="160" y="512" name="inst_EE856179" locked="0" code="" scaleX="8" scaleY="8" colour="4294967295" rotation="0"/>
+    <instance objName="obj_ground" x="0" y="640" name="inst_CCC27206" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_boss2" x="544" y="528" name="inst_4117B2A3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_game_manager_story_mode_boss2" x="96" y="32" name="inst_23B38D56" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

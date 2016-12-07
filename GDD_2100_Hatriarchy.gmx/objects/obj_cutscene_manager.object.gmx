@@ -40,6 +40,9 @@ switch (global.curr_cutscene)
             "as the fabled savior, save your people, one evil patriarch at a time!");
         break;
     case 2:
+            scr_init_cutscene_manager(2, global.curr_cutscene_dest, spr_cutscene1_1, 
+            "Their supreme, misogynist, white ruler is heavily guarded", spr_boss2_hiding, 
+            "use either intuition or raw strength to conquer this enemy!");
         break;
     case 3:
         break;

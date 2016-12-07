@@ -169,6 +169,16 @@
           <sprite>sprites\spr_boss1_falling_proj</sprite>
         </sprites>
       </sprites>
+      <sprites name="Boss2">
+        <sprite>sprites\spr_boss2_hiding</sprite>
+        <sprite>sprites\spr_boss2_hiding_idle</sprite>
+        <sprite>sprites\spr_boss2_peaking_left</sprite>
+        <sprite>sprites\spr_boss2_peaking_right</sprite>
+        <sprites name="Attacks">
+          <sprite>sprites\spr_boss2_bullet_big</sprite>
+          <sprite>sprites\spr_boss2_bullet_small</sprite>
+        </sprites>
+      </sprites>
     </sprites>
     <sprites name="Tutorial">
       <sprite>sprites\spr_tut_enemy</sprite>
@@ -238,6 +248,13 @@
         <script>scripts\scr_boss1_create_falling_proj.gml</script>
         <script>scripts\scr_boss1_create_small_proj.gml</script>
       </scripts>
+      <scripts name="Boss2">
+        <script>scripts\scr_boss2_state_idle.gml</script>
+        <script>scripts\scr_boss2_state_shooting.gml</script>
+        <script>scripts\scr_boss2_state_gatling.gml</script>
+        <script>scripts\scr_boss2_state_sunburst.gml</script>
+        <script>scripts\scr_boss2_create_bullet.gml</script>
+      </scripts>
       <script>scripts\scr_boss_create_projectile.gml</script>
     </scripts>
   </scripts>
@@ -292,7 +309,21 @@
     <objects name="Story Mode">
       <object>objects\obj_game_manager_story_mode_tutorial</object>
       <object>objects\obj_game_manager_story_mode_boss1</object>
+      <object>objects\obj_game_manager_story_mode_boss2</object>
       <object>objects\obj_cutscene_manager</object>
+      <objects name="Bosses">
+        <objects name="Boss1">
+          <object>objects\obj_boss1</object>
+          <object>objects\obj_boss1_small_proj</object>
+          <object>objects\obj_boss1_falling_proj</object>
+        </objects>
+        <objects name="Boss2">
+          <object>objects\obj_boss2</object>
+          <object>objects\obj_boss2_bullet_small</object>
+          <object>objects\obj_boss2_bullet_big</object>
+        </objects>
+        <object>objects\obj_boss_proj</object>
+      </objects>
     </objects>
     <objects name="Versus Mode">
       <object>objects\obj_versus_manager</object>
@@ -313,14 +344,6 @@
       <object>objects\obj_achievements_menu</object>
       <object>objects\obj_tweet_achievements_button</object>
       <object>objects\obj_blind_manager</object>
-    </objects>
-    <objects name="Bosses">
-      <objects name="Boss1">
-        <object>objects\obj_boss1</object>
-        <object>objects\obj_boss1_small_proj</object>
-        <object>objects\obj_boss1_falling_proj</object>
-      </objects>
-      <object>objects\obj_boss_proj</object>
     </objects>
     <objects name="Tutorial">
       <object>objects\obj_tut_enemy</object>
@@ -433,6 +456,7 @@
       <room>rooms\rm_cutscenes</room>
       <room>rooms\rm_story_tutorial</room>
       <room>rooms\rm_story_level1</room>
+      <room>rooms\rm_story_level2</room>
     </rooms>
     <rooms name="Versus Mode">
       <room>rooms\rm_versus_menu</room>
