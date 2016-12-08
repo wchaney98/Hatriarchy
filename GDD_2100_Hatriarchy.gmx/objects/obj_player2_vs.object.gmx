@@ -28,7 +28,6 @@
             <string>state = scr_state_player_moving;
 
 // Look for gamepad
-global.gp = 0;
 var gp_num = gamepad_get_device_count();
 for (var i = 0; i &lt; gp_num; i++;)
 {

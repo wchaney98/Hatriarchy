@@ -89,7 +89,11 @@ disabled = false;
             break;
             
         case 2:
-            // Goto stage 2 (cutscene if not yet)
+            room_goto(rm_story_level2_choice);
+            break      
+        
+        case 20:
+            // Goto FIGHT stage 2 (cutscene if not yet)
             if not global.cutscene2
             {
                 global.curr_cutscene_dest = rm_story_level2;
@@ -97,6 +101,18 @@ disabled = false;
                 global.cutscene2 = true;
                 room_goto(rm_cutscenes);
             } else room_goto(rm_story_level2);
+            break;
+        case 21:
+            // Goto IMPRESS stage 2 (cutscene if not yet)
+            if not global.cutscene2_alt
+            {
+                global.curr_cutscene_dest = rm_story_level2_alt; // diff curscene
+                global.curr_cutscene = 2.5;
+                global.cutscene2_alt = true;
+                room_goto(rm_cutscenes);
+            } else room_goto(rm_story_level2_alt);
+            break;
+            break;
     }
 }
 </string>

@@ -17,6 +17,8 @@
       <sound>sound\snd_hit_kick</sound>
       <sound>sound\snd_hit_ground</sound>
       <sound>sound\snd_walk_cycle</sound>
+      <sound>sound\snd_player_shoot</sound>
+      <sound>sound\snd_target_hit</sound>
     </sounds>
     <sounds name="Magic">
       <sound>sound\snd_high_attack</sound>
@@ -63,9 +65,12 @@
   <sprites name="sprites">
     <sprites name="Player">
       <sprite>sprites\spr_low_hitbox</sprite>
+      <sprite>sprites\spr_cursor_target</sprite>
       <sprite>sprites\spr_mid_hitbox</sprite>
       <sprite>sprites\spr_vats_hit</sprite>
       <sprite>sprites\spr_high_attack_hit</sprite>
+      <sprite>sprites\spr_x</sprite>
+      <sprite>sprites\spr_x_box</sprite>
       <sprites name="Player HUD">
         <sprite>sprites\spr_ap_box</sprite>
         <sprite>sprites\spr_ap_fill</sprite>
@@ -186,6 +191,8 @@
           <sprite>sprites\spr_boss2_bullet_small</sprite>
           <sprite>sprites\spr_boss2_sunburst</sprite>
         </sprites>
+        <sprite>sprites\spr_boss2_alt_target_good</sprite>
+        <sprite>sprites\spr_boss2_alt_target_bad</sprite>
       </sprites>
     </sprites>
     <sprites name="Tutorial">
@@ -202,6 +209,10 @@
       <sprite>sprites\spr_cutscene1_1</sprite>
       <sprite>sprites\spr_cutscene2_1</sprite>
       <sprite>sprites\spr_cutscene2_2</sprite>
+      <sprite>sprites\spr_cutscene2_alt1</sprite>
+      <sprite>sprites\spr_cutscene2_alt2</sprite>
+      <sprite>sprites\spr_cutscene2_alt3</sprite>
+      <sprite>sprites\spr_cutscene2_alt4</sprite>
     </sprites>
     <sprite>sprites\spr_ground</sprite>
     <sprite>sprites\spr_walk</sprite>
@@ -265,6 +276,7 @@
         <script>scripts\scr_boss2_state_sunburst.gml</script>
         <script>scripts\scr_boss2_create_bullet.gml</script>
         <script>scripts\scr_boss2_create_starburst.gml</script>
+        <script>scripts\scr_boss2_alt_create_target.gml</script>
       </scripts>
       <script>scripts\scr_boss_create_projectile.gml</script>
     </scripts>
@@ -321,6 +333,7 @@
       <object>objects\obj_game_manager_story_mode_tutorial</object>
       <object>objects\obj_game_manager_story_mode_boss1</object>
       <object>objects\obj_game_manager_story_mode_boss2</object>
+      <object>objects\obj_game_manager_story_mode_2_alt</object>
       <object>objects\obj_cutscene_manager</object>
       <objects name="Bosses">
         <objects name="Boss1">
@@ -333,6 +346,8 @@
           <object>objects\obj_boss2_bullet_small</object>
           <object>objects\obj_boss2_bullet_big</object>
           <object>objects\obj_boss2_starburst</object>
+          <object>objects\obj_boss2_alt_target_good</object>
+          <object>objects\obj_boss2_alt_target_bad</object>
         </objects>
         <object>objects\obj_boss_proj</object>
       </objects>
@@ -468,7 +483,9 @@
       <room>rooms\rm_cutscenes</room>
       <room>rooms\rm_story_tutorial</room>
       <room>rooms\rm_story_level1</room>
+      <room>rooms\rm_story_level2_choice</room>
       <room>rooms\rm_story_level2</room>
+      <room>rooms\rm_story_level2_alt</room>
     </rooms>
     <rooms name="Versus Mode">
       <room>rooms\rm_versus_menu</room>

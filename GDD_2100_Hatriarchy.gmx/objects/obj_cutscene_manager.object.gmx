@@ -40,10 +40,20 @@ switch (global.curr_cutscene)
             "as the fabled savior, save your people, one evil patriarch at a time!");
         break;
     case 2:
-            scr_init_cutscene_manager(2, global.curr_cutscene_dest, spr_cutscene2_1, 
+            scr_init_cutscene_manager(3, global.curr_cutscene_dest, spr_cutscene2_1, 
             "Their supreme, misogynist, white ruler is heavily guarded", spr_cutscene2_2, 
             "use either intuition or raw strength to conquer this enemy!");
         break;
+    case 2.5:
+            scr_init_cutscene_manager(4, global.curr_cutscene_dest, 
+            spr_cutscene2_alt1, 
+            "Their supreme, misogynist, white ruler is heavily guarded", 
+            spr_cutscene2_alt2, 
+            "his royal guard is fond of sharpshooters",
+            spr_cutscene2_alt3, 
+            "left click to shoot these before they disappear! 3 strikes you're out",
+            spr_cutscene2_alt4, 
+            "shoot one of these and you're done for!");
     case 3:
         break;
 }
