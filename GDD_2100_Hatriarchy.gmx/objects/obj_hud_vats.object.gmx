@@ -97,7 +97,7 @@ if (creator.vats)
         
         if (creator.vats_selection_finalized)
         {
-            draw_text(50, 120, "loc: " + string(creator.vats_selected_loc));
+            //draw_text(50, 120, "loc: " + string(creator.vats_selected_loc));
             var s = creator.vats_selected;
             draw_set_color(c_red);
             switch(creator.vats_selected_loc)

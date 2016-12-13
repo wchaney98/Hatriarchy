@@ -39,12 +39,16 @@ global.cutscene2_alt = false;
 global.cutscene3 = false;
 
 global.beat_stage_one = true;
-global.beat_stage_two = false;
-global.beat_stage_three = false;
+global.beat_stage_two = true;
+global.beat_stage_three = true;
 
 // Options menu
 global.one_hand_mode = false;
 global.blind_mode = false;
+
+// Avatar choice
+global.gender = "male";
+global.race = "asian";
 
 // Set audio listener pos
 audio_listener_position(room_width / 2, room_height / 2, 0);
@@ -179,6 +183,9 @@ if global.current_room != room
             break;
         case rm_cutscenes:
             if global.curr_cutscene == 1 audio_play_sound(snd_cutscene_1, 1, false);
+            if global.curr_cutscene == 2 audio_play_sound(snd_cutscene_2, 1, false);
+            if global.curr_cutscene == 2.5 audio_play_sound(snd_cutscene_2_5, 1, false);
+            if global.curr_cutscene == 3 audio_play_sound(snd_cutscene_3, 1, false);
             break;
         case rm_story_tutorial:
             if global.blind_mode audio_play_sound(snd_blind_tutorial, 1, false);

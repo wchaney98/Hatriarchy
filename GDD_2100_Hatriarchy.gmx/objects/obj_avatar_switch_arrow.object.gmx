@@ -49,7 +49,8 @@ dir = "unset";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch(dir)
+            <string>audio_play_sound(snd_menu_click, 1, false);
+switch(dir)
 {
     case "left":
         creator.left_pressed = true;

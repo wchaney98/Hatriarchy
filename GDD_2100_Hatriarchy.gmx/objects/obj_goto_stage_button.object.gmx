@@ -52,6 +52,7 @@ disabled = false;
             <kind>1</kind>
             <string>if not disabled
 {
+    audio_play_sound(snd_menu_click, 1, false);
     switch (action)
     {        
         /*
@@ -112,6 +113,16 @@ disabled = false;
                 room_goto(rm_cutscenes);
             } else room_goto(rm_story_level2_alt);
             break;
+            
+        case 3:
+            // Stage 3
+            if not global.cutscene3
+            {
+                global.curr_cutscene_dest = rm_story_level3;
+                global.curr_cutscene = 3;
+                global.cutscene3 = true;
+                room_goto(rm_cutscenes);
+            } else room_goto(rm_story_level3);
             break;
     }
 }

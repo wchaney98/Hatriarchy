@@ -25,11 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>current_gender = irandom_range(MALE, FEMALE);
+            <string>current_gender = MALE;
 current_race = irandom_range(WHITE, BLACK);
 
-gender_switch = scr_create_switch(room_width / 2, room_height / 8 * 5, "gender", "GENDER");
+//gender_switch = scr_create_switch(room_width / 2, room_height / 8 * 5, "gender", "GENDER");
 race_switch = scr_create_switch(room_width / 2, room_height / 8 * 6, "race", "RACE");
+
+curr_gender_text = "unset";
+curr_race_text = "unset";
 </string>
           </argument>
         </arguments>
@@ -52,8 +55,7 @@ race_switch = scr_create_switch(room_width / 2, room_height / 8 * 6, "race", "RA
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var curr_gender_text = "unset";
-var curr_race_text = "unset";
+            <string>
 
 draw_set_font(test_font);
 draw_set_halign(fa_middle);
@@ -82,9 +84,6 @@ switch (current_race)
         curr_race_text = "black";
         break;
 }
-
-draw_text(100, 50, "G: " + curr_gender_text);
-draw_text(100, 100, "R: " + curr_race_text);
 
 if (current_gender == MALE)
 {

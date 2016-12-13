@@ -25,54 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Set these in creation code
-scenes[0] = 0;
-texts[0] = "UNSET";
-duration = room_speed * 4;
-destination_rm = undefined;
-// endset
+            <string>won = false;
+lost = false;
 
-switch (global.curr_cutscene)
-{
-    case 1:
-            scr_init_cutscene_manager(7, global.curr_cutscene_dest, spr_cutscene1_1, 
-            "the oppressive, white, male, privileged hat-people have enslaved your people", spr_cutscene1_2, 
-            "as the fabled savior, save your people, one evil patriarch at a time!");
-        break;
-    case 2:
-            scr_init_cutscene_manager(5, global.curr_cutscene_dest, spr_cutscene2_1, 
-            "Their supreme, misogynist, white ruler is heavily guarded", spr_cutscene2_2, 
-            "use both intuition and raw strength to conquer this foe!");
-        break;
-    case 2.5:
-            scr_init_cutscene_manager(4, global.curr_cutscene_dest, 
-            spr_cutscene2_alt1, 
-            "Their supreme, misogynist, white ruler is heavily guarded", 
-            spr_cutscene2_alt2, 
-            "his royal guard is fond of sharpshooters",
-            spr_cutscene2_alt3, 
-            "left click to shoot these before they disappear! 3 strikes you're out",
-            spr_cutscene2_alt4, 
-            "shoot one of these and you're done for!");
-            break;
-    case 3:
-            scr_init_cutscene_manager(3.5, global.curr_cutscene_dest, 
-            spr_cutscene3_1, 
-            "The time has come to end this oppression once and for all!", 
-            spr_cutscene3_2, 
-            '"He is too strong to handle alone."',
-            spr_cutscene3_2, 
-            '"When I can channel enough of the hat-power you have gained, I can weaken him."',
-            spr_cutscene3_3, 
-            '"We believe in you!"');
-        break;
-}
-
-current_scene_spr = 0;
-current_text_str = 0;
-
-current_index = 0;
-steps = 0;
+one_deactivated = false;
+vulnerable_state = false;
 </string>
           </argument>
         </arguments>
@@ -95,22 +52,31 @@ steps = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if steps &gt;= duration * array_length_1d(scenes) 
+            <string>if !one_deactivated
 {
-    room_goto (destination_rm);
-    instance_destroy();
-    exit;
+    if obj_player.life &lt;= 0
+    {
+        audio_play_sound_at(snd_you_lose, x, y, 0, 100, 100, 0, false, 1);
+        lost = true;
+        instance_deactivate_object(obj_player);
+        var fo = instance_create(0, 0, eff_fadeout);
+        fo.new_room = rm_story_map;
+        fo.fade_color = make_colour_rgb(0, 0, 0);
+        one_deactivated = true;
+    }
+    if obj_boss3.life &lt;= 0
+    {
+        audio_play_sound_at(snd_you_win, x, y, 0, 100, 100, 0, false, 1);
+        won = true;
+        instance_deactivate_object(obj_boss1);
+        var fo = instance_create(0, 0, eff_fadeout);
+        fo.new_room = rm_story_map;
+        fo.fade_color = make_colour_rgb(255, 255, 255);
+        one_deactivated = true;
+        if obj_player.life == 100 obj_achievement_tracker.boss1_perfect = true;
+        global.beat_stage_two = true;
+    }
 }
-
-if steps % duration == 0 and current_index &lt;= array_length_1d(scenes)
-{
-    current_scene_spr = scenes[current_index];
-    current_text_str = texts[current_index];
-
-    current_index++;
-}
-    
-steps++;
 </string>
           </argument>
         </arguments>
@@ -133,14 +99,28 @@ steps++;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font(test_font);
+            <string>draw_set_font(font_announcement);
 draw_set_halign(fa_middle);
 draw_set_valign(fa_middle);
-draw_set_color(c_black);
 
-draw_sprite(current_scene_spr, 0, room_width / 2, room_height / 2);
-draw_text(room_width / 2, room_height - 100, current_text_str);
+if lost
+{
+    draw_set_color(c_red);
+    draw_text(room_width / 2, room_height / 2, "YOU LOST");
+}
+if won
+{
+    draw_set_color(c_green);
+    draw_text(room_width / 2, room_height / 2, "JUSTICE DELIVERED");
+}
 
+if vulnerable_state
+{
+    draw_set_font(test_font);
+    draw_sprite(spr_npc, 0, 0, room_height / 2);
+    draw_set_color(c_lime);
+    draw_text(room_width / 2, room_height / 8 * 7, '"i have taken down his shield!"');
+}
 </string>
           </argument>
         </arguments>

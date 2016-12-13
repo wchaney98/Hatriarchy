@@ -17,12 +17,24 @@ been_hit = false;
 // Check for vats key (enable/disable)
 if (player_one_vats_prs and action_pts >= 20)
 {
-    vats = true;
-    scr_set_vats_for_right_player(true);
-    scr_vats_get_targets(); 
-    audio_play_sound_at(snd_vats_enter, x, y, 0, 100, 100, 0, false, 1);
-    state = scr_state_player_vats;
-    exit;
+    if (object_index = obj_player1_vs or object_index = obj_player) and !global.p2_vats
+    {
+        vats = true;
+        scr_set_vats_for_right_player(true);
+        scr_vats_get_targets(); 
+        audio_play_sound_at(snd_vats_enter, x, y, 0, 100, 100, 0, false, 1);
+        state = scr_state_player_vats;
+        exit;
+    }
+    if object_index = obj_player2_vs and !global.p1_vats
+    {
+        vats = true;
+        scr_set_vats_for_right_player(true);
+        scr_vats_get_targets(); 
+        audio_play_sound_at(snd_vats_enter, x, y, 0, 100, 100, 0, false, 1);
+        state = scr_state_player_vats;
+        exit;
+    }
 }
 
 // TODO: Rest of attacks

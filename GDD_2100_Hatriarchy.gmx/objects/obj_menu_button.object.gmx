@@ -110,7 +110,8 @@ prev_room = undefined;
         room_goto(rm_avatar_creation);
         break;
     case 11:
-        // Goto savior screen TODO: if avatar created (bool)
+        // Goto savior screen
+        room_goto(rm_avatar_creation);
         break;
         
     /*
@@ -119,6 +120,11 @@ prev_room = undefined;
     
     case 20:
         // Confirm avatar and goto story mode map
+        if room = rm_avatar_creation
+        {
+            global.gender = obj_avatar_manager.curr_gender_text;
+            global.race = obj_avatar_manager.curr_race_text;
+        }
         room_goto(rm_story_map);
         break;
         
@@ -140,6 +146,7 @@ prev_room = undefined;
         room_goto(rm_versus_level);
         break;
 }
+audio_play_sound(snd_menu_click, 1, false);
 </string>
           </argument>
         </arguments>

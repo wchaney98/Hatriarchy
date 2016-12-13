@@ -51,7 +51,8 @@ image_speed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>switch(option)
+            <string>audio_play_sound(snd_menu_click, 1, false);
+switch(option)
 {
     case "one_hand_mode":
         global.one_hand_mode = !global.one_hand_mode;

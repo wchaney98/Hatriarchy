@@ -52,7 +52,7 @@
   </views>
   <instances>
     <instance objName="obj_menu_button" x="512" y="192" name="inst_4546B369" locked="0" code="text = &quot;Start Game&quot;&#xA;//action = 10;&#xA;action = 20;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_menu_button" x="512" y="288" name="inst_B0982CFF" locked="0" code="text = &quot;Your Savior&quot;;&#xA;action = 11;&#xA;disabled = true;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_menu_button" x="512" y="288" name="inst_B0982CFF" locked="0" code="text = &quot;edit Your Savior&quot;;&#xA;action = 11;&#xA;disabled = false;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_menu_button" x="512" y="384" name="inst_C94A25D1" locked="0" code="text = &quot;Back&quot;;&#xA;action = -1;&#xA;prev_room = rm_main_menu;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>

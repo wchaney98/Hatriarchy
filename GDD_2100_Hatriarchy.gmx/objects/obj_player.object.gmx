@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>state = scr_state_player_moving;
 
-scr_avatar_create("");
+scr_avatar_create("_" + global.gender + "_" + global.race);
 
 attacking = false;
 high_attack_spd = 8;

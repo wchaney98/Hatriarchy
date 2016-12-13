@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var ach_text = "";
+            <string>audio_play_sound(snd_menu_click, 1, false);
+var ach_text = "";
 
 if obj_achievement_tracker.boss1_perfect ach_text += " 'A Good Start',";
 if obj_achievement_tracker.boss2_perfect ach_text += " 'Not Half Bad',";

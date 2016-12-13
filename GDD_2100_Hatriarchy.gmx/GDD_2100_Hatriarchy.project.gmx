@@ -42,11 +42,11 @@
       <sound>sound\snd_blind_story_mode_map</sound>
       <sound>sound\snd_blind_versus</sound>
       <sound>sound\snd_blind_sonar</sound>
-      <sound>sound\snd_cutscene_1</sound>
       <sound>sound\snd_you_win</sound>
       <sound>sound\snd_you_lose</sound>
       <sound>sound\snd_blind_instructions</sound>
       <sound>sound\snd_blind_tutorial</sound>
+      <sound>sound\snd_ap</sound>
     </sounds>
     <sounds name="Bosses">
       <sounds name="Boss1">
@@ -60,6 +60,19 @@
         <sound>sound\snd_boss2_pistol</sound>
         <sound>sound\snd_boss2_sunburst</sound>
       </sounds>
+      <sounds name="Boss3">
+        <sound>sound\snd_boss3_charge</sound>
+        <sound>sound\snd_boss3_vulnerable</sound>
+      </sounds>
+    </sounds>
+    <sounds name="Menus">
+      <sound>sound\snd_menu_click</sound>
+    </sounds>
+    <sounds name="Cutscenes">
+      <sound>sound\snd_cutscene_1</sound>
+      <sound>sound\snd_cutscene_2</sound>
+      <sound>sound\snd_cutscene_2_5</sound>
+      <sound>sound\snd_cutscene_3</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -194,6 +207,14 @@
         <sprite>sprites\spr_boss2_alt_target_good</sprite>
         <sprite>sprites\spr_boss2_alt_target_bad</sprite>
       </sprites>
+      <sprites name="Boss3">
+        <sprite>sprites\spr_boss3_base</sprite>
+        <sprite>sprites\spr_boss3_vulnerable</sprite>
+        <sprite>sprites\spr_boss3_charge</sprite>
+        <sprite>sprites\spr_boss3_burst</sprite>
+        <sprite>sprites\spr_boss3_rain_mtn_dew</sprite>
+        <sprite>sprites\spr_npc</sprite>
+      </sprites>
     </sprites>
     <sprites name="Tutorial">
       <sprite>sprites\spr_tut_enemy</sprite>
@@ -213,6 +234,9 @@
       <sprite>sprites\spr_cutscene2_alt2</sprite>
       <sprite>sprites\spr_cutscene2_alt3</sprite>
       <sprite>sprites\spr_cutscene2_alt4</sprite>
+      <sprite>sprites\spr_cutscene3_1</sprite>
+      <sprite>sprites\spr_cutscene3_2</sprite>
+      <sprite>sprites\spr_cutscene3_3</sprite>
     </sprites>
     <sprite>sprites\spr_ground</sprite>
     <sprite>sprites\spr_walk</sprite>
@@ -278,6 +302,13 @@
         <script>scripts\scr_boss2_create_starburst.gml</script>
         <script>scripts\scr_boss2_alt_create_target.gml</script>
       </scripts>
+      <scripts name="Boss3">
+        <script>scripts\scr_boss3_state_vulnerable.gml</script>
+        <script>scripts\scr_boss3_state_idle.gml</script>
+        <script>scripts\scr_boss3_state_charging.gml</script>
+        <script>scripts\scr_boss3_state_burst.gml</script>
+        <script>scripts\scr_boss3_rain_mtn_dew.gml</script>
+      </scripts>
       <script>scripts\scr_boss_create_projectile.gml</script>
     </scripts>
   </scripts>
@@ -334,6 +365,7 @@
       <object>objects\obj_game_manager_story_mode_boss1</object>
       <object>objects\obj_game_manager_story_mode_boss2</object>
       <object>objects\obj_game_manager_story_mode_2_alt</object>
+      <object>objects\obj_game_manager_story_mode_boss3</object>
       <object>objects\obj_cutscene_manager</object>
       <objects name="Bosses">
         <objects name="Boss1">
@@ -349,6 +381,9 @@
           <object>objects\obj_boss2_alt_target_good</object>
           <object>objects\obj_boss2_alt_target_bad</object>
         </objects>
+        <objects name="Boss3">
+          <object>objects\obj_boss3</object>
+        </objects>
         <object>objects\obj_boss_proj</object>
       </objects>
     </objects>
@@ -361,7 +396,6 @@
     <objects name="Menus">
       <object>objects\obj_menu_button</object>
       <object>objects\obj_option_button</object>
-      <object>objects\obj_arrow_button</object>
       <objects name="Story Mode">
         <object>objects\obj_goto_stage_button</object>
       </objects>
@@ -486,6 +520,7 @@
       <room>rooms\rm_story_level2_choice</room>
       <room>rooms\rm_story_level2</room>
       <room>rooms\rm_story_level2_alt</room>
+      <room>rooms\rm_story_level3</room>
     </rooms>
     <rooms name="Versus Mode">
       <room>rooms\rm_versus_menu</room>
