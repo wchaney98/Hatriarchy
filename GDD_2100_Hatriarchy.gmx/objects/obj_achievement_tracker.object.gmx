@@ -38,13 +38,17 @@ global.cutscene2 = false;
 global.cutscene2_alt = false;
 global.cutscene3 = false;
 
-global.beat_stage_one = true;
-global.beat_stage_two = true;
-global.beat_stage_three = true;
+global.beat_stage_one = false;
+global.beat_stage_two = false;
+global.beat_stage_three = false;
 
 // Options menu
 global.one_hand_mode = false;
 global.blind_mode = false;
+
+// Global vats
+global.p1_vats = false;
+global.p2_vats = false;
 
 // Avatar choice
 global.gender = "male";

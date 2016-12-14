@@ -4,6 +4,15 @@ scr_get_input();
 
 dir = sign(image_xscale); // get direction player is facing
 
+if object_index = obj_player1_vs and global.p2_vats
+{
+    exit;
+}
+if object_index = obj_player2_vs and global.p1_vats
+{
+    exit;
+}
+
 // Check if hit
 if (life_last_step > life)
 {

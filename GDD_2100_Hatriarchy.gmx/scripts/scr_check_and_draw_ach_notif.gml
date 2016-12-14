@@ -5,7 +5,8 @@ if argument0 and not achievement_triggered and not argument2
     notif_x_curr = notif_x_dest;
     notif_y_curr = 1000;
     alarm[0] = room_speed * 3;
-    show_debug_message("here");
+    audio_play_sound(snd_achievement, 1, false);
+    //show_debug_message("here");
 }
 
 if argument0 and achievement_triggered and not argument2
@@ -15,7 +16,7 @@ if argument0 and achievement_triggered and not argument2
     if (alarm[0] == -1)
     {
         achievement_triggered = false;
-        show_debug_message("byeah");
+        //show_debug_message("byeah");
         return true;
     }
 }

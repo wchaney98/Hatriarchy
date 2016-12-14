@@ -47,6 +47,7 @@
       <sound>sound\snd_blind_instructions</sound>
       <sound>sound\snd_blind_tutorial</sound>
       <sound>sound\snd_ap</sound>
+      <sound>sound\snd_achievement</sound>
     </sounds>
     <sounds name="Bosses">
       <sounds name="Boss1">
@@ -308,6 +309,7 @@
         <script>scripts\scr_boss3_state_charging.gml</script>
         <script>scripts\scr_boss3_state_burst.gml</script>
         <script>scripts\scr_boss3_rain_mtn_dew.gml</script>
+        <script>scripts\scr_boss3_create_starburst.gml</script>
       </scripts>
       <script>scripts\scr_boss_create_projectile.gml</script>
     </scripts>

@@ -27,9 +27,9 @@
             <kind>1</kind>
             <string>
 boss = true;
-life = 200;
+life = 125;
 life_last_step = life;
-max_life = 200;
+max_life = 125;
 blocking = false;
 blocking_loc = 0;
 

@@ -52,7 +52,7 @@ disabled = false;
             <kind>1</kind>
             <string>if not disabled
 {
-    audio_play_sound(snd_menu_click, 1, false);
+
     switch (action)
     {        
         /*

@@ -146,7 +146,6 @@ prev_room = undefined;
         room_goto(rm_versus_level);
         break;
 }
-audio_play_sound(snd_menu_click, 1, false);
 </string>
           </argument>
         </arguments>
